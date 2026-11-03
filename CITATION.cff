@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this research framework, please cite this repository using the metadata below."
+type: software
+title: "D-BTP: Dynamic Bucket Tree of Permutation — Directional Structural Generation and Hypothesis Evolution"
+authors:
+  - family-names: Tan
+    given-names: Sizhe
+abstract: >-
+  D-BTP is a research framework for dynamic structural hypothesis search.
+  It integrates state-dependent candidate generation, constraint-guided
+  structural composition, directional generation and selection, weak-evidence
+  exploration, feedback, and optional multi-agent structural relay.
+  The repository presents theoretical foundations, interface contracts,
+  application cases, and proposed validation protocols; empirical advantages
+  and recursive self-improvement are research hypotheses, not established results.
+keywords:
+  - dynamic structural search
+  - bucket tree of permutation
+  - structural intelligence
+  - directional fields
+  - weak evidence
+  - constraint-guided search
+  - multi-agent learning
+  - structural relay
+license: Apache-2.0
+repository-code: "https://github.com/sizhet/Dynamic-Bucket-Tree-of-Permutation-and-Directional-Structural-Evolution"
+url: "https://github.com/sizhet/Dynamic-Bucket-Tree-of-Permutation-and-Directional-Structural-Evolution"
+version: 1.0.0
+date-released: 2026-11-03
