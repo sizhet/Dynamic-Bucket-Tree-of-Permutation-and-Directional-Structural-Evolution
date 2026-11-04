@@ -54,6 +54,10 @@ A candidate is assessed against hard constraints and, when admissible, may be ra
 
 The loop must distinguish *logical infeasibility* from *low search priority*. A weak directional signal can reorder exploration, but cannot by itself prove a candidate impossible.
 
+![Fig-001-D-BTP-Grand-Architecture.png](figures/Fig-001-D-BTP-Grand-Architecture.png)
+
+*Fig-001. D-BTP grand architecture. A dynamic bucket maintains structural hypotheses and evidence; state-dependent candidate generation, constraint validation, directional search control, and feedback jointly govern exploration. Structural relay and learning may operate across search episodes.*
+
 ## 4. Design Principles
 
 1. **Dynamic generation, not necessarily exhaustive upfront enumeration.** Search must record what has and has not been explored.
@@ -225,6 +229,13 @@ Please distinguish **specification proposals**, **implemented behavior**, **meas
 - **ResearchGate overview:** [publication/D-BTP-v1.0.0-ResearchGate-Overview.pdf](publication/D-BTP-v1.0.0-ResearchGate-Overview.pdf).
 
 **DOI:** To be assigned after an archived release; no DOI is claimed here.
+
+---
+
+## 📚 DBM-SI Series Navigation
+
+See:\
+[./docs/DBM-SI-Series-of-gitHub-Repositories/DBM-SI-Series-of-gitHub-Repositories.md](./docs/DBM-SI-Series-of-gitHub-Repositories/DBM-SI-Series-of-gitHub-Repositories.md)
 
 ---
 
