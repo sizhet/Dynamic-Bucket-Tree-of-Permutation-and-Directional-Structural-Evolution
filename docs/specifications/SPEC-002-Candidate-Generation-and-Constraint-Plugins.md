@@ -503,8 +503,8 @@ Each hypothesis is empirical and may be falsified. Improvements must be evaluate
 - **D-BTP-007:** Multi-agent RSI and collective structural learning.
 - **D-BTP-008:** Open-ended structural evolution and its boundaries.
 - **SPEC-001:** Canonical bucket state, transitions, provenance, and lifecycle.
-- **SPEC-003 (planned):** Directional scoring and search control.
-- **SPEC-004 (planned):** Evidence relay and learning lifecycle.
+- **SPEC-003:** Directional scoring and search control.
+- **SPEC-004:** Evidence relay and learning lifecycle.
 
 ## 26. Conclusion
 

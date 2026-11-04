@@ -815,9 +815,9 @@ The phases are recommendations, not a claim that a reference implementation exis
 | Weak evidence and counterevidence | SPEC-004 | D-BTP-005 |
 | Structural hypothesis relay | SPEC-004 | D-BTP-007 |
 | Learning lifecycle and validated RSI | SPEC-004 | D-BTP-007, D-BTP-008 |
-| Dynamic starmap comparison | SPEC-001–004 | CASE-002 (planned) |
-| Blockchain behavioral attribution | SPEC-001–004 | CASE-001 (planned) |
-| Multi-agent hypothesis competition | SPEC-001–004 | CASE-003 (planned) |
+| Dynamic starmap comparison | SPEC-001–004 | CASE-002 |
+| Blockchain behavioral attribution | SPEC-001–004 | CASE-001 |
+| Multi-agent hypothesis competition | SPEC-001–004 | CASE-003 |
 
 Related conceptual directions include BM-ODWEI's directional weak evidence, REN's relational evidence navigation, UIERU's structural relay, AQSI's autonomous question generation, and SIF's residual-driven growth. These are research connections, not claims of implementation equivalence.
 
