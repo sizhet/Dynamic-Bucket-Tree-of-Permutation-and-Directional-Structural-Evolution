@@ -470,12 +470,6 @@ This framework makes a broad intuition operational: *structural generation creat
 
 ---
 
-## Suggested figure placement
-
-- **Fig-005 — Directional Generation and Selection Coupling:** immediately after Section 2 or at the start of Section 9.
-- **Fig-006 — Weak Evidence and Multi-Directional Scoring:** after Section 8 or Section 7, with detailed treatment reserved for D-BTP-005.
-- **Fig-001 — D-BTP Grand Architecture:** optional cross-reference in Section 19; avoid duplicating it in every foundation paper.
-
 ## Research status and citation note
 
 This document is a proposed research architecture within the D-BTP project. Its terminology and formal definitions are intended to support future specifications, implementations, and validation. It does not report completed benchmark results or establish novel mathematical optimality theorems. Cite the repository's eventual DOI and versioned `CITATION.cff` after publication; do not invent a DOI before release.

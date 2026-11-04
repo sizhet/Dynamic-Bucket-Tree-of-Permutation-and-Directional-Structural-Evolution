@@ -406,12 +406,6 @@ Dynamic BTP provides a concrete setting in which to test that proposition. Candi
 
 ---
 
-## Suggested figure placement
-
-- **Fig-006 — Weak Evidence and Multi-Directional Scoring:** after Section 7 or Section 12, depicting separate evidence, direction, and feasibility pathways.
-- **Fig-005 — Directional Generation and Selection Coupling:** optional cross-reference in Section 8, rather than a duplicate insertion.
-- **Fig-007 — Blockchain Actor Attribution BTP:** in Section 13 or primarily in CASE-001.
-
 ## Research status and citation note
 
 This document presents proposed definitions, interfaces, hypotheses, and validation protocols. It does not claim completed experiments, established performance improvements, or proof of a universal weak-evidence algorithm. Cite the eventual versioned repository release and DOI only after they exist.
