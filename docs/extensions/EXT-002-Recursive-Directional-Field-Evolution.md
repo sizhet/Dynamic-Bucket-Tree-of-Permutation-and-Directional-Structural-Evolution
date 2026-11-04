@@ -15,6 +15,18 @@ The proposal distinguishes state updates, parameter adaptation, policy revision,
 
 ---
 
+![Fig-005-Directional-Generation-and-Selection-Coupling.png](../../figures/Fig-005-Directional-Generation-and-Selection-Coupling.png)
+
+*Fig-005. Directional fields couple what is proposed with what is explored next. Directional policies influence candidate generation, branch prioritization, and resource allocation; evaluated outcomes and independently checked evidence feed back into subsequent policy updates.*
+
+---
+
+![Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png](../../figures/Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png)
+
+*Fig-008. Multi-agent structural relay and recursive evolution. Competing search agents exchange versioned hypotheses, evidence, and candidate improvements. Independent validation and governance distinguish ordinary adaptation from accepted reusable improvements and from stronger claims of recursive self-improvement.*
+
+---
+
 ## 1. Motivation: When the Search Direction Becomes a Search Object
 
 The foundations of D-BTP separate three interacting processes:

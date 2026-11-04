@@ -9,6 +9,20 @@
 
 Dynamic Bucket Tree of Permutation (D-BTP) treats a search bucket as an evolving structural hypothesis state rather than a fixed list of unresolved pairs. Candidate generation and constraint evaluation are therefore state-dependent operations. This specification defines interoperable contracts for generators, validators, propagators, and plugin orchestration. It separates *feasibility* from *evidence* and *search priority*, states conditions for sound rejection and pruning, and makes plugin behavior auditable across multi-agent and relay workflows. The contracts are proposals for implementation and testing, not claims of a completed or formally verified runtime.
 
+---
+
+![Fig-003-Dynamic-Bucket-State-and-Candidate-Generation.png](../../figures/Fig-003-Dynamic-Bucket-State-and-Candidate-Generation.png)
+
+*Fig-003. A dynamic bucket carries a hypothesis ledger, structural state, evidence with provenance, directional policy state, and versioned metadata. Candidate generation reads the current state; accept, exclude, and defer decisions produce traceable successor states.*
+
+---
+
+![Fig-004-Constraint-Guided-Structural-Hypothesis-Search.png](../../figures/Fig-004-Constraint-Guided-Structural-Hypothesis-Search.png)
+
+*Fig-004. Constraint-guided structural composition. Candidate hypotheses pass through explicit hard-constraint checks, conditional evaluations, and propagation. Soundly inconsistent branches can be pruned; uncertain or weakly supported branches remain eligible for further investigation.*
+
+---
+
 ## 1. Normative language and design goals
 
 The words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** express requirements for implementations claiming conformance to this proposed specification. They do not imply that a deployed implementation currently exists.

@@ -11,6 +11,10 @@
 
 Bucket Tree of Permutation (BTP) was motivated by metric-structure and starmap similarity: given two potentially unaligned structures, identify compatible node-pair correspondences and evaluate their joint structural fit. This paper argues that the more general computational object is not a similarity score but a *structural hypothesis search*: a constrained exploration of candidate relations whose acceptance or exclusion changes the state in which subsequent hypotheses are generated and assessed. We distinguish the baseline finite-candidate interpretation from a dynamic extension in which candidate generation, evidence accumulation, structural state transitions, and search control are coupled. Blockchain actor attribution serves as a motivating example, not as a claim that an on-chain address identifies a real-world person. We propose formal semantics, invariants, falsifiable hypotheses, and an agenda for specification and empirical validation. No superiority, completeness, or biological correspondence is assumed without evidence.
 
+![Fig-002-From-Static-to-Dynamic-BTP.png](../../figures/Fig-002-From-Static-to-Dynamic-BTP.png)
+
+*Fig-002. From fixed-candidate BTP to dynamic BTP. A static search explores a previously defined candidate universe; dynamic BTP generates additional candidates from the evolving bucket state and observed structural consequences. Both retain explicit branch decisions and feasibility checks.*
+
 ## 1. Motivation and Scope
 
 Structural similarity is often framed as a terminal calculation:
@@ -97,6 +101,10 @@ B_{t+1}=\operatorname{Transition}(B_t,p_t,a_t),
 \]
 
 State transitions may create new derived nodes or edges, alter candidate priorities, and reveal previously unenumerated candidate relations. They must not rewrite the historical meaning of accepted or excluded decisions without an explicit revision mechanism.
+
+![Fig-001-D-BTP-Grand-Architecture.png](../../figures/Fig-001-D-BTP-Grand-Architecture.png)
+
+*Fig-001. D-BTP grand architecture. A dynamic bucket maintains structural hypotheses and evidence; state-dependent candidate generation, constraint validation, directional search control, and feedback jointly govern exploration. Structural relay and learning may operate across search episodes.*
 
 ## 4. Dynamic Search Is Not Merely a Larger Static List
 

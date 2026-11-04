@@ -15,6 +15,12 @@ This is a research-stage interoperability specification. The schemas and algorit
 
 ---
 
+![Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png](../../figures/Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png)
+
+*Fig-008. Multi-agent structural relay and recursive evolution. Competing search agents exchange versioned hypotheses, evidence, and candidate improvements. Independent validation and governance distinguish ordinary adaptation from accepted reusable improvements and from stronger claims of recursive self-improvement.*
+
+---
+
 ## 1. Purpose, Applicability, and Normative Language
 
 ### 1.1 Purpose

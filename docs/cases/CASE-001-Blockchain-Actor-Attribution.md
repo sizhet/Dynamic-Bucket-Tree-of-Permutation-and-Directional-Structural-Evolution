@@ -9,6 +9,14 @@
 
 Public blockchains expose transaction histories and graph structure, but they do not directly expose the human or organizational actors responsible for every observed action. This case study develops a **Dynamic Bucket Tree of Permutation (D-BTP)** formulation for *behavioral actor attribution*: constructing and comparing hypotheses about which latent operational actors may control or coordinate observed blockchain activity. The problem is treated as dynamic, constraint-guided structural hypothesis search rather than a static address-matching exercise. A directional field steers candidate generation, branch selection, and evidence acquisition, while independently assessed evidence and hard constraints determine what is justified. The result is a research architecture for producing auditable, competing hypotheses—not a method for asserting real-world identities from on-chain data alone.
 
+---
+
+![Fig-007-Blockchain-Actor-Attribution-BTP.png](../../figures/Fig-007-Blockchain-Actor-Attribution-BTP.png)
+
+*Fig-007. Illustrative blockchain behavior attribution using D-BTP. Observed transactions and behavioral patterns support competing latent-actor grouping hypotheses, subject to constraints and directional evidence. The inferred units are behavioral actors, not verified real-world identities.*
+
+---
+
 ## 1. Research question and scope
 
 The central question is:

@@ -10,6 +10,10 @@
 
 The conventional description of a Bucket Tree of Permutation (BTP) starts with a fixed set of candidate node pairs and branches on whether each pair is included. This representation is convenient for static metric-starmap similarity, but it is not essential to the BTP search principle. This paper develops a dynamic formulation in which a bucket carries a structural hypothesis, evolving model state, decision history, evidence, and search-control context. Candidate pairs are *generated from the current bucket state*, rather than enumerated once in an immutable unresolved list. The resulting search can discover new relations, expand or revise latent structural objects, propagate constraints, and allocate effort under directional guidance. We specify transition semantics, key invariants, candidate provenance, duplicate prevention, stopping conditions, and distinctions between exhaustive and budget-limited search. The formulation is proposed as a reusable foundation for structural hypothesis search; it does not by itself establish optimality, empirical superiority, or autonomous intelligence.
 
+![Fig-003-Dynamic-Bucket-State-and-Candidate-Generation.png](../../figures/Fig-003-Dynamic-Bucket-State-and-Candidate-Generation.png)
+
+*Fig-003. A dynamic bucket carries a hypothesis ledger, structural state, evidence with provenance, directional policy state, and versioned metadata. Candidate generation reads the current state; accept, exclude, and defer decisions produce traceable successor states.*
+
 ## 1. Motivation: the fixed-list description is only a special case
 
 Let two metric structures or starmaps be \(A\) and \(B\). In a baseline static formulation, a matching procedure produces a finite candidate set \(C_0\) of node pairs. A search node stores accepted pairs, unresolved pairs, and updated matching states. Each branching step accepts or rejects one unresolved pair. A leaf is reached when the list is empty.
@@ -62,6 +66,10 @@ A rejected relation is a *branch decision*, not necessarily a fact about the wor
 ### 3.2 Identity, versioning, and provenance
 
 Candidate identity should include canonical relation semantics and relevant object versions. If a latent actor cluster is split, a pair referencing the pre-split cluster cannot be treated as identical to a pair referencing a successor cluster without a declared equivalence rule. Store the generator, triggering state, and evidence references so that results remain auditable.
+
+![Fig-002-From-Static-to-Dynamic-BTP.png](../../figures/Fig-002-From-Static-to-Dynamic-BTP.png)
+
+*Fig-002. From fixed-candidate BTP to dynamic BTP. A static search explores a previously defined candidate universe; dynamic BTP generates additional candidates from the evolving bucket state and observed structural consequences. Both retain explicit branch decisions and feasibility checks.*
 
 ## 4. Dynamic candidate generation
 
@@ -177,6 +185,14 @@ Consider a synthetic ledger with observable transactions \(T_1,T_2,\ldots\) and 
 Suppose accepting \((A_1,T_1)\) creates a provisional behavioral cluster. The cluster may suggest a new candidate \((A_1,T_3)\) that was not present in an initial pair list. Rejecting \((A_1,T_3)\) may prompt a different cluster interpretation and a candidate involving \(A_2\). The search state, candidate generator, and evidence interpretation evolve together.
 
 The system must distinguish *transaction-level structural similarity*, *common control*, and *real-world identity*. Neither shared patterns nor a high-scoring leaf establish personal identity. For validation, use synthetic or properly authorized datasets with known ground truth, and report uncertainty and alternative explanations.
+
+---
+
+![Fig-007-Blockchain-Actor-Attribution-BTP.png](../../figures/Fig-007-Blockchain-Actor-Attribution-BTP.png)
+
+*Fig-007. Illustrative blockchain behavior attribution using D-BTP. Observed transactions and behavioral patterns support competing latent-actor grouping hypotheses, subject to constraints and directional evidence. The inferred units are behavioral actors, not verified real-world identities.*
+
+---
 
 ## 10. Implementation-oriented pseudocode
 

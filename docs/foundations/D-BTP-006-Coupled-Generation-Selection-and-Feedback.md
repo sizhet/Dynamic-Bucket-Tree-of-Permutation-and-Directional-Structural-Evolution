@@ -13,6 +13,26 @@ Dynamic Bucket Tree of Permutation (D-BTP) generalizes bucket-based structural m
 
 **Keywords:** D-BTP; structural hypothesis search; directional field; generative branching; feedback; weak evidence; constraint propagation; policy learning; collective learning; search governance.
 
+---
+
+![Fig-001-D-BTP-Grand-Architecture.png](../../figures/Fig-001-D-BTP-Grand-Architecture.png)
+
+*Fig-001. D-BTP grand architecture. A dynamic bucket maintains structural hypotheses and evidence; state-dependent candidate generation, constraint validation, directional search control, and feedback jointly govern exploration. Structural relay and learning may operate across search episodes.*
+
+---
+
+![Fig-005-Directional-Generation-and-Selection-Coupling.png](../../figures/Fig-005-Directional-Generation-and-Selection-Coupling.png)
+
+*Fig-005. Directional fields couple what is proposed with what is explored next. Directional policies influence candidate generation, branch prioritization, and resource allocation; evaluated outcomes and independently checked evidence feed back into subsequent policy updates.*
+
+---
+
+![Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png](../../figures/Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png)
+
+Fig-006. Weak evidence can contribute to several directional objectives—plausibility, novelty, information gain, cost, and counterevidence potential—without becoming a hard feasibility verdict. Provenance, correlation checks, and competing perspectives constrain how scores are interpreted.*
+
+---
+
 ## 1. Position in the D-BTP Research Series
 
 D-BTP-001 reframes metric similarity and unaligned AND as special instances of structural hypothesis search. D-BTP-002 introduces dynamically generated candidates and evolving bucket states. D-BTP-003 distinguishes hard constraints from heuristic evidence and specifies sound rejection. D-BTP-004 formalizes directional guidance for generation, selection, and resource allocation. D-BTP-005 explores the computational value of weak evidence as a search signal. The present paper asks a different question: **how should these mechanisms interact over time without confusing hypothesis plausibility, search utility, and empirical truth?**

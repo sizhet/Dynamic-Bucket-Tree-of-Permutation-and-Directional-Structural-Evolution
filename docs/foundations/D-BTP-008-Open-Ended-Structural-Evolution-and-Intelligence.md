@@ -13,6 +13,18 @@ Dynamic Bucket Tree of Permutation (D-BTP) generalizes a constrained structural 
 
 ---
 
+![Fig-001-D-BTP-Grand-Architecture.png](../../figures/Fig-001-D-BTP-Grand-Architecture.png)
+
+*Fig-001. D-BTP grand architecture. A dynamic bucket maintains structural hypotheses and evidence; state-dependent candidate generation, constraint validation, directional search control, and feedback jointly govern exploration. Structural relay and learning may operate across search episodes.*
+
+---
+
+![Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png](../../figures/Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png)
+
+*Fig-008. Multi-agent structural relay and recursive evolution. Competing search agents exchange versioned hypotheses, evidence, and candidate improvements. Independent validation and governance distinguish ordinary adaptation from accepted reusable improvements and from stronger claims of recursive self-improvement.*
+
+---
+
 ## 1. Why Open-Ended Evolution Is a Separate Problem
 
 A search engine may be extremely effective while operating entirely within a fixed universe of candidates. Even a dynamic generator does not necessarily escape that universe: it may merely enumerate its members lazily. Similarly, changing a ranking policy does not automatically create new representational capacity. These distinctions matter when discussing the relationship between D-BTP and intelligence.

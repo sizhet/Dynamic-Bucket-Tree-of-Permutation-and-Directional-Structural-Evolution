@@ -13,6 +13,12 @@ Dynamic Bucket Tree of Permutation (D-BTP) generalizes structural matching into 
 
 ---
 
+![Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png](../../figures/Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png)
+
+*Fig-008. Multi-agent structural relay and recursive evolution. Competing search agents exchange versioned hypotheses, evidence, and candidate improvements. Independent validation and governance distinguish ordinary adaptation from accepted reusable improvements and from stronger claims of recursive self-improvement.*
+
+---
+
 ## 1. Motivation: Beyond a Larger Search Tree
 
 A conventional search algorithm operates over a fixed representation and a fixed family of admissible moves. Dynamic BTP relaxes the assumption that all candidate relations must be enumerated in advance: the current Bucket state can generate new candidates, which are tested under constraints and prioritized by directional fields. Yet a dynamically generated candidate list may still inhabit a closed representational universe.

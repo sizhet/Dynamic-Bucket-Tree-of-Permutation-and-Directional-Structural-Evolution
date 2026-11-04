@@ -11,6 +11,10 @@ This specification defines the canonical state contract for a Dynamic Bucket in 
 
 This document is a proposed interoperability contract, not a claim that a reference implementation has passed validation.
 
+![Fig-003-Dynamic-Bucket-State-and-Candidate-Generation.png](../../figures/Fig-003-Dynamic-Bucket-State-and-Candidate-Generation.png)
+
+*Fig-003. A dynamic bucket carries a hypothesis ledger, structural state, evidence with provenance, directional policy state, and versioned metadata. Candidate generation reads the current state; accept, exclude, and defer decisions produce traceable successor states.*
+
 ## 1. Normative Language and Scope
 
 The terms **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** indicate requirements for implementations claiming conformance to this proposed specification.

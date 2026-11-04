@@ -9,6 +9,20 @@
 
 This case returns to the original Bucket Tree of Permutation (BTP) setting: similarity between two structural maps whose nodes and relations are not necessarily aligned. It investigates what changes when candidate correspondences are generated dynamically from the evolving Bucket state, and when directional fields influence both generation and selection. Rather than treating structural similarity as a fixed matching problem, Dynamic BTP (D-BTP) maintains competing partial correspondences, constraint-propagated structural consequences, evidence provenance, and a search frontier that can change as the comparison proceeds. The case defines the problem, state transitions, admissible and heuristic bounds, a worked synthetic example, baseline comparisons, evaluation metrics, conformance requirements, and falsifiable hypotheses. It makes no claim of guaranteed polynomial complexity or demonstrated superiority without experiments.
 
+---
+
+![Fig-002-From-Static-to-Dynamic-BTP.png](../../figures/Fig-002-From-Static-to-Dynamic-BTP.png)
+
+*Fig-002. From fixed-candidate BTP to dynamic BTP. A static search explores a previously defined candidate universe; dynamic BTP generates additional candidates from the evolving bucket state and observed structural consequences. Both retain explicit branch decisions and feasibility checks.*
+
+---
+
+![Fig-004-Constraint-Guided-Structural-Hypothesis-Search.png](../../figures/Fig-004-Constraint-Guided-Structural-Hypothesis-Search.png)
+
+*Fig-004. Constraint-guided structural composition. Candidate hypotheses pass through explicit hard-constraint checks, conditional evaluations, and propagation. Soundly inconsistent branches can be pruned; uncertain or weakly supported branches remain eligible for further investigation.*
+
+---
+
 ## 1. Purpose and Scope
 
 The original BTP motivation is to find structurally compatible combinations of node pairs drawn from two starmaps under a finite search budget. In a static formulation, an initial pool of candidate pairs is ranked and explored. In a dynamic formulation, the state of an accepted or rejected correspondence can reveal, suppress, or alter subsequent candidates. D-BTP adds a second coupling: directional guidance can alter *which* candidates are generated and *which* branches receive resources, while verified search outcomes can update guidance.

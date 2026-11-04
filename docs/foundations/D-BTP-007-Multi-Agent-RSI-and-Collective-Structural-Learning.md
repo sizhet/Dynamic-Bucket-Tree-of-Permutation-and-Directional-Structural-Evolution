@@ -140,6 +140,20 @@ Recommended lifecycle:
 
 A unit can be relayed repeatedly as additional observations accumulate. Repetition is useful as a data-collection relay only when it preserves distinct observations and does not multiply-count the same underlying evidence.
 
+---
+
+![Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png](../../figures/Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png)
+
+*Fig-008. Multi-agent structural relay and recursive evolution. Competing search agents exchange versioned hypotheses, evidence, and candidate improvements. Independent validation and governance distinguish ordinary adaptation from accepted reusable improvements and from stronger claims of recursive self-improvement.*
+
+---
+
+![Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png](../../figures/Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png)
+
+*Fig-008. Multi-agent structural relay and recursive evolution. Competing search agents exchange versioned hypotheses, evidence, and candidate improvements. Independent validation and governance distinguish ordinary adaptation from accepted reusable improvements and from stronger claims of recursive self-improvement.*
+
+---
+
 ## 6. Competition and cooperation among hypotheses
 
 The search controller should preserve a portfolio \(\mathcal{P}_t\) rather than only one winning hypothesis:

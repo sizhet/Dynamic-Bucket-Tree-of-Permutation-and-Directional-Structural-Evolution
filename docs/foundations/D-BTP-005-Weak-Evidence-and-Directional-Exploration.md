@@ -96,6 +96,10 @@ Four illustrative cases clarify the separation:
 
 No monotonic relationship between evidential strength and computational utility is assumed.
 
+![Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png](../../figures/Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png)
+
+Fig-006. Weak evidence can contribute to several directional objectives—plausibility, novelty, information gain, cost, and counterevidence potential—without becoming a hard feasibility verdict. Provenance, correlation checks, and competing perspectives constrain how scores are interpreted.*
+
 ## 5. Evidence record and provenance contract
 
 Each evidence item should carry sufficient information to support audit and re-evaluation. A proposed canonical record is:
@@ -233,6 +237,12 @@ where \(\mathcal{C}_t\) describes dependence assumptions and \(\theta_t\) contai
 This creates an interface with UCPSF-style scoring and BM-ODWEI-style directional weak evidence, without assuming that any particular fold is statistically valid in every domain.
 
 ## 13. Blockchain actor-attribution example
+
+![Fig-007-Blockchain-Actor-Attribution-BTP.png](../../figures/Fig-007-Blockchain-Actor-Attribution-BTP.png)
+
+*Fig-007. Illustrative blockchain behavior attribution using D-BTP. Observed transactions and behavioral patterns support competing latent-actor grouping hypotheses, subject to constraints and directional evidence. The inferred units are behavioral actors, not verified real-world identities.*
+
+---
 
 Suppose an authorized analyst examines a synthetic blockchain transaction graph. Observable nodes represent transactions, addresses, and contracts; actor nodes are latent hypotheses rather than known people. Candidate pairs express claims such as *latent controller A may be associated with activity cluster X*.
 

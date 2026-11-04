@@ -292,3 +292,16 @@
 82. Autonomous Questioning Structural Intelligence (AQSI) - \
     Question Discovery, Multi-Granularity Influence Scoring, Structural Relay, and Research Governance \
     Repository: https://github.com/sizhet/Autonomous-Questioning-Structural-Intelligence
+    
+83. Intelligence Spillover, Generalization, Fluidity, Transfer, and Relay (ISGFTR) - \
+    An open, theory-first research program on capability frontiers, structural transfer, system-centric learning, and evidence-bearing intelligence relay. \
+    Repository: https://github.com/sizhet/Intelligence-Spillover-Generalization-Fluidity-Transfer-and-Relay
+
+84. Adversarial Structural Security Intelligence (ASSI) - \
+    A specification-first research program for understanding, testing, and improving security in systems where identities, evidence, authority, incentives, and dependencies change over time. \
+    Repository: https://github.com/sizhet/Adversarial-Structural-Security-Intelligence
+        
+85. D-BTP — Dynamic Bucket Tree of Permutation - \
+    Directional Structural Generation and Hypothesis Evolution. \
+    Repository: https://github.com/sizhet/Dynamic-Bucket-Tree-of-Permutation-and-Directional-Structural-Evolution
+    

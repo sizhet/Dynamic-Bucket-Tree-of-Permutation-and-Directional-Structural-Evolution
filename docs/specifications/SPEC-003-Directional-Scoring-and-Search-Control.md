@@ -10,6 +10,20 @@
 
 This specification defines interoperable contracts for directional scoring, search-frontier control, resource allocation, field adaptation, and evidence-aware feedback in Dynamic Bucket Tree of Permutation (D-BTP). A directional field is a versioned, explicitly scoped policy object that can influence which structural candidates are generated, evaluated, explored, retained, and revisited. It is not a substitute for a hard-constraint checker or an evidentiary finding. The specification separates *feasibility*, *evidence*, *directional utility*, *selection policy*, and *learning* while allowing them to interact through a traceable control loop. It specifies required data objects, state transitions, invariants, interfaces, failure behavior, audit events, and conformance tests.
 
+---
+
+![Fig-005-Directional-Generation-and-Selection-Coupling.png](../../figures/Fig-005-Directional-Generation-and-Selection-Coupling.png)
+
+*Fig-005. Directional fields couple what is proposed with what is explored next. Directional policies influence candidate generation, branch prioritization, and resource allocation; evaluated outcomes and independently checked evidence feed back into subsequent policy updates.*
+
+---
+
+![Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png](../../figures/Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png)
+
+Fig-006. Weak evidence can contribute to several directional objectives—plausibility, novelty, information gain, cost, and counterevidence potential—without becoming a hard feasibility verdict. Provenance, correlation checks, and competing perspectives constrain how scores are interpreted.*
+
+---
+
 ## 1. Purpose and Scope
 
 D-BTP starts with a dynamic Bucket state and generates structural hypotheses conditioned on the state, constraints, evidence, and policy. A search controller must prioritize finite computational resources without confusing promising hypotheses with verified ones. The present contract addresses five questions:

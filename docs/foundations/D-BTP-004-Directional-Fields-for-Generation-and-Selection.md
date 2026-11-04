@@ -11,6 +11,14 @@
 
 A dynamic Bucket Tree of Permutation (D-BTP) does not merely score a fixed set of matching pairs. It constructs evolving structural hypotheses, discovers candidates in response to current state, and decides which branches deserve scarce computation. This paper develops **directional fields** as a unified but explicitly decomposable control mechanism for (i) generating structural candidates, (ii) choosing which hypotheses to expand, and (iii) allocating computational and evidential resources. A field is not necessarily a scalar similarity metric: it can be a state-dependent, multi-objective, perspective-specific policy over structural transitions. The essential proposal is **coupling**: directional guidance shapes what is generated, while the consequences of generated hypotheses can update subsequent guidance. We specify the semantics of directional fields, their interfaces to dynamic buckets, their separation from hard feasibility, feedback and governance boundaries, alternative search controllers, and a validation program. These are architectural hypotheses requiring empirical tests, not claims that any direction field is intrinsically reliable or that the approach guarantees superior search.
 
+---
+
+![Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png](../../figures/Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png)
+
+Fig-006. Weak evidence can contribute to several directional objectives—plausibility, novelty, information gain, cost, and counterevidence potential—without becoming a hard feasibility verdict. Provenance, correlation checks, and competing perspectives constrain how scores are interpreted.*
+
+---
+
 ## 1. From measuring a structure to directing its growth
 
 In baseline metric similarity, the common abstraction is to compare two structures, identify candidate correspondences, and maximize a score over compatible subsets. The objective evaluates a candidate alignment. The search is often described as selecting among pre-existing pairings.
@@ -58,6 +66,10 @@ A simplistic pipeline would be `generate → score → select`. That is a useful
 ```
 
 **Key distinction:** Generation and selection are logically separable for testing and implementation, but computationally interdependent when the generator uses current direction and the direction field uses information produced by earlier generations.
+
+![Fig-005-Directional-Generation-and-Selection-Coupling.png](../../figures/Fig-005-Directional-Generation-and-Selection-Coupling.png)
+
+*Fig-005. Directional fields couple what is proposed with what is explored next. Directional policies influence candidate generation, branch prioritization, and resource allocation; evaluated outcomes and independently checked evidence feed back into subsequent policy updates.*
 
 ## 3. Formal setting
 

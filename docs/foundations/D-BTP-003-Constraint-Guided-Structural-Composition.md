@@ -71,6 +71,10 @@ Some rules hold only under assumptions: “if this account is individually contr
 
 **Design principle:** `hard reject` requires a declared invariant or certified contradiction; `low score` requires only weak or defeasible evidence. Conflating them produces premature pruning.
 
+![Fig-004-Constraint-Guided-Structural-Hypothesis-Search.png](../../figures/Fig-004-Constraint-Guided-Structural-Hypothesis-Search.png)
+
+*Fig-004. Constraint-guided structural composition. Candidate hypotheses pass through explicit hard-constraint checks, conditional evaluations, and propagation. Soundly inconsistent branches can be pruned; uncertain or weakly supported branches remain eligible for further investigation.*
+
 ## 5. Structural composition as a transition
 
 Let \(c\in G(\mathcal B_t)\) be a dynamically generated candidate. The two familiar BTP branches remain:
@@ -266,6 +270,10 @@ Consider three observed behaviors \(b_1,b_2,b_3\) and two provisional latent act
 5. The engine retains competing portfolios, including an unresolved option, rather than declaring a real-world person from transaction-pattern similarity.
 
 This example illustrates a methodological boundary: on-chain address control, transaction execution, economic benefit, and real-world identity are distinct predicates. Public-key verification establishes a cryptographic relation, not a person's identity. Any external linkage data must be used only when lawfully obtained and appropriately authorized.
+
+![Fig-007-Blockchain-Actor-Attribution-BTP.png](../../figures/Fig-007-Blockchain-Actor-Attribution-BTP.png)
+
+*Fig-007. Illustrative blockchain behavior attribution using D-BTP. Observed transactions and behavioral patterns support competing latent-actor grouping hypotheses, subject to constraints and directional evidence. The inferred units are behavioral actors, not verified real-world identities.*
 
 ## 14. Static BTP as a special case
 
