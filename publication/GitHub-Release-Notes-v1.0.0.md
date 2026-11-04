@@ -56,7 +56,7 @@ The extension studies four potential growth frontiers: **hypotheses, representat
 
 ## Research contents
 
-This initial research package comprises **18 planned research papers** organized as follows. Paths below are relative to the repository root.
+This initial research package comprises **18 research papers** organized as follows. Paths below are relative to the repository root.
 
 ### Foundations (8)
 
