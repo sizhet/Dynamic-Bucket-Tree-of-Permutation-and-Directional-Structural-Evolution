@@ -289,7 +289,7 @@ For CASE-001, the validated target should be **synthetic latent behavioral struc
 
 | Stage | Contents | Appropriate public wording |
 |---|---|---|
-| R0: theory release | Foundations, specifications, cases, open questions, planned figures | Proposed framework and testable hypotheses |
+| R0: theory release | Foundations, specifications, cases, open questions, figures | Proposed framework and testable hypotheses |
 | R1: contract reference | Schemas, conformance tests, synthetic traces | Reference implementation conforms to tested contracts |
 | R2: baseline study | Frozen benchmarks, baselines and raw outcomes | Measured benefits/limits in specified regimes |
 | R3: learning study | Relay and held-out adaptation experiments | Evaluated transfer or adaptation within stated scope |

@@ -150,7 +150,7 @@ This diagram is explanatory; actual implementations may use asynchronous agents,
 
 ### Figures
 
-The planned eight-figure sequence is:
+The eight-figure sequence is:
 
 1. [Fig-001 — Grand Architecture](figures/Fig-001-D-BTP-Grand-Architecture.png)
 2. [Fig-002 — From Static to Dynamic BTP](figures/Fig-002-From-Static-to-Dynamic-BTP.png)
@@ -209,7 +209,7 @@ A practical implementation should define explicit contracts for representations,
 
 ## 11. Repository Status and Contributions
 
-This release is planned as a **research-first v1.0.0**: foundations, specifications, illustrative cases, extensions, and publication assets. It need not include a runnable demo to be useful, but claims about runtime behavior remain hypotheses until supported by reproducible implementations and experiments.
+This release is as a **research-first v1.0.0**: foundations, specifications, illustrative cases, extensions, and publication assets. It need not include a runnable demo to be useful, but claims about runtime behavior remain hypotheses until supported by reproducible implementations and experiments.
 
 Contributions are especially welcome in the form of:
 
@@ -224,7 +224,7 @@ Please distinguish **specification proposals**, **implemented behavior**, **meas
 ## 12. Citation, License, and Publication
 
 - **License:** Apache License 2.0; see [LICENSE](LICENSE) once added to the repository.
-- **Citation metadata:** [CITATION.cff](CITATION.cff) and [.zenodo.json](.zenodo.json) are planned publication assets; verify authors, repository URL, release tag, and DOI before publication.
+- **Citation metadata:** [CITATION.cff](CITATION.cff) and [.zenodo.json](.zenodo.json) are publication assets; verify authors, repository URL, release tag, and DOI before publication.
 - **Release notes:** [publication/GitHub-Release-Notes-v1.0.0.md](publication/GitHub-Release-Notes-v1.0.0.md).
 - **ResearchGate overview:** [publication/D-BTP-v1.0.0-ResearchGate-Overview.pdf](publication/D-BTP-v1.0.0-ResearchGate-Overview.pdf).
 

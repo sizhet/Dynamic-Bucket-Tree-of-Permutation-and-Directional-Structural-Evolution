@@ -15,14 +15,12 @@
 | [README.md](README.md) | Project overview, contributions, scope, and repository map |
 | [START-HERE.md](START-HERE.md) | Entry points tailored to different research interests |
 | **CONTENTS.md** | Complete document index, dependency map, and reading routes |
-| [GLOSSARY.md](GLOSSARY.md) | Terminology and abbreviations (planned publication asset) |
-| [FIGURE-INDEX.md](FIGURE-INDEX.md) | Figure captions and placement guide (planned publication asset) |
-| [FUTURE-DIRECTIONS.md](FUTURE-DIRECTIONS.md) | Research extensions and priorities (planned publication asset) |
-| [OPEN-QUESTIONS.md](OPEN-QUESTIONS.md) | Unresolved theoretical and engineering questions (planned publication asset) |
-| [TESTABLE-HYPOTHESES.md](TESTABLE-HYPOTHESES.md) | Falsifiable hypotheses and proposed baselines (planned publication asset) |
-| [VALIDATION-ROADMAP.md](VALIDATION-ROADMAP.md) | Staged experimental and conformance plan (planned publication asset) |
-
-*Links marked “planned publication asset” describe the agreed repository structure; the corresponding files should be added before public release.*
+| [GLOSSARY.md](GLOSSARY.md) | Terminology and abbreviations |
+| [FIGURE-INDEX.md](FIGURE-INDEX.md) | Figure captions and placement guide |
+| [FUTURE-DIRECTIONS.md](FUTURE-DIRECTIONS.md) | Research extensions and priorities |
+| [OPEN-QUESTIONS.md](OPEN-QUESTIONS.md) | Unresolved theoretical and engineering questions |
+| [TESTABLE-HYPOTHESES.md](TESTABLE-HYPOTHESES.md) | Falsifiable hypotheses and proposed baselines |
+| [VALIDATION-ROADMAP.md](VALIDATION-ROADMAP.md) | Staged experimental and conformance plan |
 
 ## 2. Foundations — eight research papers
 
@@ -74,7 +72,7 @@ The cases are **research designs and synthetic illustrations**, not field-valida
 
 **Epistemic boundary:** Biomimetic analogy does not establish that brains execute BTP. Self-modification is not automatically validated recursive self-improvement (RSI). Open-ended evolution remains a research hypothesis.
 
-## 6. Figures — planned eight-file index
+## 6. Figures — eight-file index
 
 | Figure | Planned file | Recommended reading context |
 |---|---|---|
@@ -86,8 +84,6 @@ The cases are **research designs and synthetic illustrations**, not field-valida
 | Fig-006 | `figures/Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png` | D-BTP-005, SPEC-003, SPEC-004 |
 | Fig-007 | `figures/Fig-007-Blockchain-Actor-Attribution-BTP.png` | CASE-001 |
 | Fig-008 | `figures/Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png` | D-BTP-007, D-BTP-008, EXT-002, EXT-003 |
-
-**Publication check:** The current artwork was initially generated as one eight-panel composite. The eight independent image paths above are *planned outputs*, not verified separate assets. Export, inspect, and save each panel under its exact filename before publishing these image links. The illustration is explanatory, not experimental evidence.
 
 ## 7. Publication and metadata assets
 
@@ -137,7 +133,7 @@ D-BTP-007 → D-BTP-008 → CASE-003 → EXT-002 → EXT-003. Separate hypothesi
 
 ### Route E — Application evaluation
 
-CASE-002 → CASE-001 → CASE-003 → TESTABLE-HYPOTHESES → VALIDATION-ROADMAP (the last two are planned assets). Compare against static BTP, unguided dynamic search, fixed directional policies, and adaptive directional policies with equal compute budgets.
+CASE-002 → CASE-001 → CASE-003 → TESTABLE-HYPOTHESES → VALIDATION-ROADMAP. Compare against static BTP, unguided dynamic search, fixed directional policies, and adaptive directional policies with equal compute budgets.
 
 ## 10. Repository structure
 

@@ -211,8 +211,6 @@ A strong contribution states its assumptions, defines measurable outcomes, prese
 
 **For evaluators:** establish static and unguided dynamic baselines before measuring feedback or multi-agent gains.
 
-**For maintainers:** finish `CONTENTS.md`, `GLOSSARY.md`, `FIGURE-INDEX.md`, the research-validation files, citation metadata, and publication assets; check that all planned figure files exist individually; then perform a release-readiness review.
-
 ## 11. Citation, License, and Research Integrity
 
 The proposed repository license is **Apache License 2.0**. Follow the repository's `LICENSE` and `CITATION.cff` once published. Do not infer a DOI from this guide: a persistent identifier should be added only after the relevant archive release has actually received one.
@@ -221,4 +219,4 @@ The repository favors **specifications and contracts first, conformance before r
 
 ---
 
-**Next document:** [CONTENTS.md](CONTENTS.md) (repository navigation; planned).
+**Next document:** [CONTENTS.md](CONTENTS.md).
