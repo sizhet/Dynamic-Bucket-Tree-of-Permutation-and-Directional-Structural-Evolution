@@ -304,4 +304,7 @@
 85. D-BTP — Dynamic Bucket Tree of Permutation - \
     Directional Structural Generation and Hypothesis Evolution. \
     Repository: https://github.com/sizhet/Dynamic-Bucket-Tree-of-Permutation-and-Directional-Structural-Evolution
-    
+
+86. Constrained Delta Evolution (CDE) - \
+    Directional Structural Generation and Hypothesis Evolution. \
+    Repository: https://github.com/sizhet/Constrained-Delta-Evolution    
