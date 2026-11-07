@@ -308,3 +308,12 @@
 86. Constrained Delta Evolution (CDE) - \
     Directional Structural Generation and Hypothesis Evolution. \
     Repository: https://github.com/sizhet/Constrained-Delta-Evolution    
+    
+87. World Entity and Structural Intelligence Operations (WE-SIO) - \
+    From Variable-Size Block Indexing to Open-Ended World Modeling, Metric Discovery, and Self-Referential Intelligence \
+    Repository: https://github.com/sizhet/World-Entity-and-Structural-Intelligence-Operations
+
+88. Object-Centric Structural Reasoning and Evolution (OCSRE) - \
+    From Classical Deduction to Differential Computation, In-Situ Learning, Constrained State Evolution, and Structural Capability Spillover \
+    Repository: https://github.com/sizhet/Object-Centric-Structural-Reasoning-and-Evolution
+     
