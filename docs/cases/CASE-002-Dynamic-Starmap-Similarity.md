@@ -189,6 +189,10 @@ This example illustrates *mechanism*, not evidence that dynamic BTP is faster. A
 Similarity should be reported with its coverage and normalization policy. A high score on a tiny matched subgraph may be misleading if most of the maps remain unmatched. One possible normalized score is
 
 $$
+\mathrm{Sim}(M)=\frac{\mathrm{matched\_structural\_mass}(M)}{\mathrm{reference\_mass}(A,B)}-\lambda\,\mathrm{soft\_violations}(M),
+$$
+
+$$
 \mathrm{Sim}(M)=\frac{\mathrm{matched\_structural\_mass}(M)}{\mathrm{reference\_mass}(A,B)}-\lambda\mathrm{soft\_violations}(M),
 $$
 
