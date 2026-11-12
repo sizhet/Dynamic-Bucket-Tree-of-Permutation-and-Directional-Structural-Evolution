@@ -43,47 +43,47 @@ The corresponding research problem is to measure *search value* separately from 
 
 Let a search bucket be represented abstractly as
 
-\[
+$$
 B_t=(H_t,S_t,P_t,E_t),
-\]
+$$
 
-where \(H_t\) is the current hypothesis record, \(S_t\) is the evolving structural state, \(P_t\) contains control policies and search bookkeeping, and \(E_t\) is the evidence ledger. This representation is logical rather than a requirement that all fields be materialized or copied at every branch.
+where $H_t$ is the current hypothesis record, $S_t$ is the evolving structural state, $P_t$ contains control policies and search bookkeeping, and $E_t$ is the evidence ledger. This representation is logical rather than a requirement that all fields be materialized or copied at every branch.
 
 A dynamic candidate generator proposes a context-dependent set or stream:
 
-\[
+$$
 C_t \sim G(\cdot\mid B_t,D_t,\mathcal{K}_t),
-\]
+$$
 
-where \(D_t\) is the current directional field and \(\mathcal{K}_t\) denotes available domain knowledge. The notation allows deterministic enumeration, stochastic proposals, and bounded streams.
+where $D_t$ is the current directional field and $\mathcal{K}_t$ denotes available domain knowledge. The notation allows deterministic enumeration, stochastic proposals, and bounded streams.
 
-For a proposed candidate \(c\), the controller may choose an accept, exclude, defer, or investigative transition, subject to the core search semantics. Weak evidence influences the proposal distribution, expansion order, or investigative action; it does **not** override a hard feasibility contract.
+For a proposed candidate $c$, the controller may choose an accept, exclude, defer, or investigative transition, subject to the core search semantics. Weak evidence influences the proposal distribution, expansion order, or investigative action; it does **not** override a hard feasibility contract.
 
 A transition can be summarized as
 
-\[
+$$
 (B_{t+1},o_t)=T(B_t,c_t,a_t,\Delta E_t),
-\]
+$$
 
-where \(o_t\) includes diagnostics and provenance. Direction may then be updated from **validated** outcomes:
+where $o_t$ includes diagnostics and provenance. Direction may then be updated from **validated** outcomes:
 
-\[
+$$
 D_{t+1}=U(D_t,o_t,\text{feedback}_t).
-\]
+$$
 
 Updates must distinguish an observed ground-truth label, an independently verified outcome, a delayed proxy, and a self-generated model score. These are not interchangeable feedback sources.
 
 ## 4. Evidential strength versus directional utility
 
-Consider a candidate \(c\), evidence \(e\), and search budget \(b\). Define a task-specific utility difference:
+Consider a candidate $c$, evidence $e$, and search budget $b$. Define a task-specific utility difference:
 
-\[
+$$
 \Delta V(e;b)=\mathbb{E}[Q(\pi_e,b)]-\mathbb{E}[Q(\pi_0,b)]-\lambda\,\Delta Cost(e;b),
-\]
+$$
 
-where \(\pi_e\) is a policy using the signal, \(\pi_0\) is an appropriate control policy, and \(Q\) is an evaluation metric defined independently of the policy's own internal score. This is a proposed evaluation quantity, not a universal closed-form estimator.
+where $\pi_e$ is a policy using the signal, $\pi_0$ is an appropriate control policy, and $Q$ is an evaluation metric defined independently of the policy's own internal score. This is a proposed evaluation quantity, not a universal closed-form estimator.
 
-A signal can have \(\Delta V>0\) while the posterior probability of the suggested hypothesis remains low. Conversely, a highly reliable observation may have almost no search utility when it is already known or does not distinguish remaining candidates.
+A signal can have $\Delta V>0$ while the posterior probability of the suggested hypothesis remains low. Conversely, a highly reliable observation may have almost no search utility when it is already known or does not distinguish remaining candidates.
 
 Four illustrative cases clarify the separation:
 
@@ -131,11 +131,11 @@ Evidence ledgers should be append-oriented or versioned, with retractions and co
 
 The separation is fundamental:
 
-\[
-\operatorname{Feasible}(B,c) \in \{0,1\},
+$$
+\mathrm{Feasible}(B,c) \in \{0,1\},
 \qquad
-\operatorname{Priority}(B,c,D)\in\mathbb{R}\text{ or a partial order}.
-\]
+\mathrm{Priority}(B,c,D)\in\mathbb{R}\text{ or a partial order}.
+$$
 
 A feasibility predicate should reject only what is incompatible with an established rule under the specified model. A directional priority may be low because of noisy evidence, but low priority does not establish infeasibility.
 
@@ -147,11 +147,11 @@ For example, two transactions occurring close together do not logically prove th
 
 A single scalar is sometimes useful, but weak evidence often supports several incomparable directions. Let
 
-\[
+$$
 D_t(c\mid B_t)=
 \bigl(d_{\mathrm{fit}},d_{\mathrm{novelty}},d_{\mathrm{information}},
  d_{\mathrm{cost}},d_{\mathrm{risk}},d_{\mathrm{counterexample}}\bigr).
-\]
+$$
 
 Components may be probabilities, calibrated predictions, ordinal rankings, or interval estimates, but their types and units must be explicit. Aggregation is a policy choice, not an inherent mathematical property of the field.
 
@@ -185,26 +185,26 @@ Validated results can improve the generator or priority model. The update mechan
 
 Where likelihood models are justified, evidence may be combined using posterior odds:
 
-\[
+$$
 \frac{P(H\mid E)}{P(\neg H\mid E)}
 =
 \frac{P(H)}{P(\neg H)}
 \cdot\frac{P(E\mid H)}{P(E\mid\neg H)}.
-\]
+$$
 
-This identity does not license naive multiplication of likelihood ratios for correlated observations. If \(E=(e_1,e_2)\), conditional dependence must be modeled or conservatively handled. On-chain behavioral features often share a common causal origin; counting each as independent can inflate confidence dramatically.
+This identity does not license naive multiplication of likelihood ratios for correlated observations. If $E=(e_1,e_2)$, conditional dependence must be modeled or conservatively handled. On-chain behavioral features often share a common causal origin; counting each as independent can inflate confidence dramatically.
 
 For many practical cases, reliable likelihoods are unavailable. The framework may then use nonprobabilistic directional scores, uncertainty intervals, or learned rankings, while explicitly refusing to call them posterior probabilities. Calibration, abstention, and external validation are essential if the scores will support substantive attribution claims.
 
 ## 10. Information gain and exploratory value
 
-An uncertain candidate may be worth investigating even if it is not the most likely to be correct. Under a probabilistic model, expected information gain from a prospective observation \(Y\) can be written as
+An uncertain candidate may be worth investigating even if it is not the most likely to be correct. Under a probabilistic model, expected information gain from a prospective observation $Y$ can be written as
 
-\[
+$$
 IG(a)=H(H\mid E)-\mathbb{E}_{Y\mid a,E}[H(H\mid E,Y)],
-\]
+$$
 
-where \(a\) is an evidence-acquisition action and \(H(\cdot)\) is entropy. The expression presupposes a coherent distribution and observation model. In nonprobabilistic settings, alternative measures include reduction in feasible-hypothesis volume, expected falsification power, or improved coverage of competing explanations.
+where $a$ is an evidence-acquisition action and $H(\cdot)$ is entropy. The expression presupposes a coherent distribution and observation model. In nonprobabilistic settings, alternative measures include reduction in feasible-hypothesis volume, expected falsification power, or improved coverage of competing explanations.
 
 Information gain is not the same as objective progress. A costly observation may greatly reduce uncertainty about an irrelevant variable. Thus the field should distinguish epistemic gain from task value and measurement cost.
 
@@ -228,11 +228,11 @@ Multiple evidence items can be redundant or causally entangled. The evidence sub
 
 A directional fold can combine evidence into a search signal while preserving provenance:
 
-\[
-F_t=\operatorname{Fold}(E_t,\mathcal{C}_t,\theta_t),
-\]
+$$
+F_t=\mathrm{Fold}(E_t,\mathcal{C}_t,\theta_t),
+$$
 
-where \(\mathcal{C}_t\) describes dependence assumptions and \(\theta_t\) contains model parameters. The fold should expose diagnostics, sensitivity to dependence assumptions, and an explicit abstention or uncertainty state.
+where $\mathcal{C}_t$ describes dependence assumptions and $\theta_t$ contains model parameters. The fold should expose diagnostics, sensitivity to dependence assumptions, and an explicit abstention or uncertainty state.
 
 This creates an interface with UCPSF-style scoring and BM-ODWEI-style directional weak evidence, without assuming that any particular fold is statistically valid in every domain.
 

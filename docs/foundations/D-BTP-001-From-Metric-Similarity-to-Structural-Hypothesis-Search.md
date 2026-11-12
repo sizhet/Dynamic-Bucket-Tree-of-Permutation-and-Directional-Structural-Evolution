@@ -19,9 +19,9 @@ Bucket Tree of Permutation (BTP) was motivated by metric-structure and starmap s
 
 Structural similarity is often framed as a terminal calculation:
 
-\[
-(A,B) \mapsto \operatorname{Similarity}(A,B).
-\]
+$$
+(A,B) \mapsto \mathrm{Similarity}(A,B).
+$$
 
 Yet an alignment search may do more than return a scalar. Accepting a correspondence can reveal new constraints, expose a previously latent relation, and suggest further correspondences. The key research question is whether the search mechanism can be separated from the particular *metric similarity* objective and reused for other structural inference tasks.
 
@@ -37,28 +37,28 @@ The latter two are proposed research generalizations. Their value must be establ
 
 Let the two input starmaps be
 
-\[
+$$
 G_A=(V_A,E_A,\alpha_A),\qquad G_B=(V_B,E_B,\alpha_B),
-\]
+$$
 
-where attributes and metrics are represented by \(\alpha_A\) and \(\alpha_B\). A matching procedure, possibly supporting wildcard nodes, proposes a finite set
+where attributes and metrics are represented by $\alpha_A$ and $\alpha_B$. A matching procedure, possibly supporting wildcard nodes, proposes a finite set
 
-\[
+$$
 C_0 \subseteq V_A\times V_B.
-\]
+$$
 
-Each candidate pair \(p=(a,b)\) asserts a possible correspondence. A baseline bucket can be represented as
+Each candidate pair $p=(a,b)$ asserts a possible correspondence. A baseline bucket can be represented as
 
-\[
+$$
 B=(R,U,S),
-\]
+$$
 
-where \(R\) is the accepted set of pairs, \(U\) is the unresolved candidate set, and \(S\) contains current structural states and evaluation caches. For a chosen \(p\in U\), two branches are considered:
+where $R$ is the accepted set of pairs, $U$ is the unresolved candidate set, and $S$ contains current structural states and evaluation caches. For a chosen $p\in U$, two branches are considered:
 
-- **Accept:** include \(p\) in \(R\), provided it is compatible with all hard constraints; update the state.
-- **Exclude:** remove \(p\) from unresolved consideration; update the state as appropriate.
+- **Accept:** include $p$ in $R$, provided it is compatible with all hard constraints; update the state.
+- **Exclude:** remove $p$ from unresolved consideration; update the state as appropriate.
 
-A baseline leaf is reached when \(U=\varnothing\). The feasible leaves encode compatible correspondence sets, interpretable as candidate Unaligned-AND alignments. A search controller attempts to find high-quality leaves under a computational budget.
+A baseline leaf is reached when $U=\varnothing$. The feasible leaves encode compatible correspondence sets, interpretable as candidate Unaligned-AND alignments. A search controller attempts to find high-quality leaves under a computational budget.
 
 ### 2.1 Compatibility is domain-defined
 
@@ -66,7 +66,7 @@ The prohibition against contradictory accepted pairs is an invariant, not necess
 
 ### 2.2 A notation correction
 
-A rigorous implementation should distinguish *excluded* from merely *not yet considered* pairs. One useful baseline representation is \(B=(R,X,U,S)\), with \(X\) an explicit exclusion set. This prevents an excluded candidate from being silently reintroduced when dynamic generation is later enabled.
+A rigorous implementation should distinguish *excluded* from merely *not yet considered* pairs. One useful baseline representation is $B=(R,X,U,S)$, with $X$ an explicit exclusion set. This prevents an excluded candidate from being silently reintroduced when dynamic generation is later enabled.
 
 ## 3. The Generalization: Search Over Structural Hypotheses
 
@@ -74,31 +74,31 @@ The decisive abstraction is to treat a pair not merely as a match contributing t
 
 A generalized bucket is
 
-\[
+$$
 B_t=(H_t,S_t,P_t,E_t),
-\]
+$$
 
 where:
 
-- \(H_t\): accepted, excluded, and pending hypotheses, with their identifiers and provenance;
-- \(S_t\): domain structural state, including derived relations and caches;
-- \(P_t\): generation, evaluation, and search-control policy state;
-- \(E_t\): accumulated evidence and scoring state.
+- $H_t$: accepted, excluded, and pending hypotheses, with their identifiers and provenance;
+- $S_t$: domain structural state, including derived relations and caches;
+- $P_t$: generation, evaluation, and search-control policy state;
+- $E_t$: accumulated evidence and scoring state.
 
 The next candidate is produced by a state-dependent generator:
 
-\[
-C_t=\operatorname{Generate}(H_t,S_t,P_t,E_t).
-\]
+$$
+C_t=\mathrm{Generate}(H_t,S_t,P_t,E_t).
+$$
 
 The generator need not materialize the full candidate universe. It may propose a small frontier, return a ranked stream, or report that no further admissible expansion is currently known. Thus a static `remaining_Unresolved_Node_Pairs_List` is an implementation option, not a defining requirement of dynamic BTP.
 
-The controller selects a candidate \(p_t\), checks feasibility, and applies a transition:
+The controller selects a candidate $p_t$, checks feasibility, and applies a transition:
 
-\[
-B_{t+1}=\operatorname{Transition}(B_t,p_t,a_t),
+$$
+B_{t+1}=\mathrm{Transition}(B_t,p_t,a_t),
 \qquad a_t\in\{\mathrm{accept},\mathrm{exclude}\}.
-\]
+$$
 
 State transitions may create new derived nodes or edges, alter candidate priorities, and reveal previously unenumerated candidate relations. They must not rewrite the historical meaning of accepted or excluded decisions without an explicit revision mechanism.
 
@@ -116,9 +116,9 @@ Dynamic candidate generation has two qualitatively distinct roles:
 
 A useful separation is:
 
-\[
+$$
 \text{Generate}\to\text{Validate}\to\text{Branch}\to\text{Update}\to\text{Generate again}.
-\]
+$$
 
 This does not imply that the generator is always correct or complete. A new hypothesis may be exploratory rather than established, and a newly derived structural object must retain the evidence and assumptions that produced it.
 
@@ -134,13 +134,13 @@ An empty *currently generated* frontier is not proof that no candidates exist. C
 
 ## 5. Directional Fields and Weak Evidence
 
-A directional field can influence which candidates are generated, which buckets are expanded, and where computation is spent. Let \(D_t\) denote directional guidance. A proposed coupled formulation is
+A directional field can influence which candidates are generated, which buckets are expanded, and where computation is spent. Let $D_t$ denote directional guidance. A proposed coupled formulation is
 
-\[
+$$
 C_t=G(B_t,D_t),\qquad
 B_{t+1}=T(B_t,p_t,a_t),\qquad
 D_{t+1}=U(D_t,B_{t+1},\Delta E_t).
-\]
+$$
 
 This is a *research model*, not a demonstrated universal law. The key claim to test is that direction-aware generation can outperform a generate-then-rank pipeline at equal resource budgets.
 
@@ -171,14 +171,14 @@ The case is suitable for **synthetic or appropriately authorized data** with kno
 
 Maximizing the number of accepted pairs is generally inadequate. A generic objective may combine fit, structural consistency, complexity, contradiction penalties, and computational cost:
 
-\[
+$$
 J(H)=F_{\mathrm{evidence}}(H)+\nu F_{\mathrm{consistency}}(H)
 -\lambda C_{\mathrm{complexity}}(H)-\mu C_{\mathrm{soft\ conflict}}(H).
-\]
+$$
 
-Hard-constraint violations instead make \(H\) infeasible. Weights, calibration, and the treatment of correlated evidence are domain-specific; the expression is illustrative rather than canonical.
+Hard-constraint violations instead make $H$ infeasible. Weights, calibration, and the treatment of correlated evidence are domain-specific; the expression is illustrative rather than canonical.
 
-A dynamic BTP implementation should be able to return a **diverse top-\(K\) portfolio** of feasible hypotheses, together with scores, provenance, unresolved alternatives, and resource-limit flags. High scoring is not the same as identifiable truth. Two incompatible hypotheses can fit the same observations equally well.
+A dynamic BTP implementation should be able to return a **diverse top-$K$ portfolio** of feasible hypotheses, together with scores, provenance, unresolved alternatives, and resource-limit flags. High scoring is not the same as identifiable truth. Two incompatible hypotheses can fit the same observations equally well.
 
 ## 8. Algorithmic Contracts and Invariants
 
@@ -202,7 +202,7 @@ A further research question is whether useful completeness or optimality guarant
 
 ## 9. Complexity and Search Control
 
-For \(m\) fixed binary candidates, naive enumeration has up to \(2^m\) accept/exclude combinations. Dynamic generation can make the effective hypothesis universe state-dependent and potentially unbounded. Therefore, no general fixed complexity bound follows from the BTP label alone.
+For $m$ fixed binary candidates, naive enumeration has up to $2^m$ accept/exclude combinations. Dynamic generation can make the effective hypothesis universe state-dependent and potentially unbounded. Therefore, no general fixed complexity bound follows from the BTP label alone.
 
 Practical performance depends on candidate quality, constraint propagation, symmetry reduction, structural decomposition, heuristic ranking, pruning bounds, memoization, and computational budgets. Candidate policies may be guided by information gain or learned value estimates. Exactness claims require admissible pruning and sufficiently complete generation; beam search and other approximate controllers generally sacrifice such guarantees.
 
@@ -231,7 +231,7 @@ These are architectural connections and proposed research interfaces, not eviden
 
 **H4 — Weak-evidence utility.** Calibrated weak evidence improves search efficiency or discovery without increasing false-positive attribution beyond an agreed threshold.
 
-**H5 — Portfolio robustness.** Diverse top-\(K\) hypotheses and explicit abstention yield better uncertainty representation than a single best-leaf report.
+**H5 — Portfolio robustness.** Diverse top-$K$ hypotheses and explicit abstention yield better uncertainty representation than a single best-leaf report.
 
 Negative or mixed results are informative. In particular, highly misleading directional fields may perform worse than unguided exploration.
 

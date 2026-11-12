@@ -29,33 +29,33 @@ The first two can be implemented without learning. The third requires feedback a
 
 Let a bucket be
 
-\[
+$$
 B_t=(H_t,S_t,D_t,E_t,M_t),
-\]
+$$
 
-where \(H_t\) contains accepted, excluded, and unresolved hypotheses; \(S_t\) is the structural state; \(D_t\) represents directional priorities; \(E_t\) stores evidence and provenance; and \(M_t\) records metadata, budgets, and exploration history. This is a conceptual contract, not a mandatory storage schema.
+where $H_t$ contains accepted, excluded, and unresolved hypotheses; $S_t$ is the structural state; $D_t$ represents directional priorities; $E_t$ stores evidence and provenance; and $M_t$ records metadata, budgets, and exploration history. This is a conceptual contract, not a mandatory storage schema.
 
 Candidate hypotheses are generated from the *current* state rather than from an immutable initial list:
 
-\[
+$$
 C_t=G(B_t,\pi_t),
-\]
+$$
 
-where \(\pi_t\) is the active policy. A valid expansion applies domain constraints and updates the bucket:
+where $\pi_t$ is the active policy. A valid expansion applies domain constraints and updates the bucket:
 
-\[
+$$
 B_{t+1}=T(B_t,c,a),\qquad c\in C_t,
-\]
+$$
 
-with \(a\) representing accept, exclude, defer, or another explicitly defined operation. **Accept** and **exclude** are logical search decisions, not assertions of ground truth. Deferral must not silently imply rejection.
+with $a$ representing accept, exclude, defer, or another explicitly defined operation. **Accept** and **exclude** are logical search decisions, not assertions of ground truth. Deferral must not silently imply rejection.
 
-For a multi-agent system, agent \(i\) has a policy \(\pi_i\), a bounded view \(V_i(B_t)\), and a role-specific output \(o_i\):
+For a multi-agent system, agent $i$ has a policy $\pi_i$, a bounded view $V_i(B_t)$, and a role-specific output $o_i$:
 
-\[
+$$
 o_i=\pi_i(V_i(B_t),\mathcal{R}_i),
-\]
+$$
 
-where \(\mathcal{R}_i\) is its permitted resource budget. Outputs are proposals until checked by shared contracts.
+where $\mathcal{R}_i$ is its permitted resource budget. Outputs are proposals until checked by shared contracts.
 
 ## 3. Why multiple agents may help
 
@@ -156,14 +156,14 @@ A unit can be relayed repeatedly as additional observations accumulate. Repetiti
 
 ## 6. Competition and cooperation among hypotheses
 
-The search controller should preserve a portfolio \(\mathcal{P}_t\) rather than only one winning hypothesis:
+The search controller should preserve a portfolio $\mathcal{P}_t$ rather than only one winning hypothesis:
 
-\[
-\mathcal{P}_t=\operatorname{Select}_{K,\delta}
-\left(\bigcup_i \operatorname{Proposals}_i(B_t)\right),
-\]
+$$
+\mathcal{P}_t=\mathrm{Select}_{K,\delta}
+\left(\bigcup_i \mathrm{Proposals}_i(B_t)\right),
+$$
 
-where \(K\) is the portfolio budget and \(\delta\) is a diversity policy. The selection function should account for evidence quality, constraint status, novelty, information gain, and expected cost.
+where $K$ is the portfolio budget and $\delta$ is a diversity policy. The selection function should account for evidence quality, constraint status, novelty, information gain, and expected cost.
 
 Competition improves robustness only if alternatives are genuinely different. If all agents use the same model, prompt, and evidence, apparent agreement may represent correlated error rather than independent corroboration. Diversity can be measured by hypothesis distance, evidence-source overlap, generator lineage, and structural differences.
 
@@ -171,19 +171,19 @@ Competition improves robustness only if alternatives are genuinely different. If
 
 A directional field is a policy-level guide for what to generate, evaluate, or investigate next. It can contain multiple dimensions:
 
-\[
+$$
 D_t=(d_{fit},d_{novelty},d_{information},d_{cost},d_{risk},d_{diversity}).
-\]
+$$
 
 Different agents may optimize different projections of this field. A candidate with low immediate fit may deserve exploration because it has high expected information gain. The controller must not collapse all objectives into an opaque scalar unless the trade-offs are documented and testable.
 
 A useful conceptual allocation rule is
 
-\[
+$$
 \mathcal{R}_{i,t+1}=A(D_t,Q_{i,t},U_{i,t},\mathcal{B}_t),
-\]
+$$
 
-where \(Q\) is observed quality, \(U\) represents uncertainty, and \(\mathcal{B}\) is the remaining resource budget. Allocation updates should retain some exploration capacity for agents with uncertain potential.
+where $Q$ is observed quality, $U$ represents uncertainty, and $\mathcal{B}$ is the remaining resource budget. Allocation updates should retain some exploration capacity for agents with uncertain potential.
 
 ## 8. Weak evidence: guidance without premature certainty
 
@@ -216,12 +216,12 @@ A precedent must include its domain, assumptions, evaluation conditions, and kno
 
 Ordinary iterative search changes bucket states. **It is not, by itself, recursive self-improvement.** In this architecture, an RSI cycle changes the mechanism that produces future searches:
 
-\[
-\pi_{k+1}=\operatorname{AdoptIfValidated}
-\left(\pi_k,\operatorname{ProposeImprovement}(\pi_k,\mathcal{L}_k)\right),
-\]
+$$
+\pi_{k+1}=\mathrm{AdoptIfValidated}
+\left(\pi_k,\mathrm{ProposeImprovement}(\pi_k,\mathcal{L}_k)\right),
+$$
 
-where \(\mathcal{L}_k\) is a validated learning record. A candidate policy is adopted only if it passes protected tests. Improvements may target generation, branching, scoring calibration, relay efficiency, or resource allocation; they must not silently relax hard constraints.
+where $\mathcal{L}_k$ is a validated learning record. A candidate policy is adopted only if it passes protected tests. Improvements may target generation, branching, scoring calibration, relay efficiency, or resource allocation; they must not silently relax hard constraints.
 
 A defensible RSI claim requires evidence of repeated, independently evaluated improvement across multiple cycles, including tests for overfitting and regressions. One successful policy revision is an improvement experiment, not proof of open-ended RSI.
 

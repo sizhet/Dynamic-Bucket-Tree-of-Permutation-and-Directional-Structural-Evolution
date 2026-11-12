@@ -56,29 +56,29 @@ The new contribution is to define **growth of the search language and its operat
 
 ## 3. The Open-Endedness Boundary
 
-Let a D-BTP configuration at iteration \(t\) be
+Let a D-BTP configuration at iteration $t$ be
 
-\[
+$$
 \mathcal{X}_t=(\mathcal{B}_t,\mathcal{L}_t,\mathcal{O}_t,\Phi_t,\mathcal{K}_t,\mathcal{P}_t),
-\]
+$$
 
 where:
 
-- \(\mathcal{B}_t\) is the portfolio of active and archived bucket states;
-- \(\mathcal{L}_t\) is the typed language of admissible structural hypotheses;
-- \(\mathcal{O}_t\) is the registry of generation, composition, and transformation operators;
-- \(\Phi_t\) is the set of directional fields and their control policies;
-- \(\mathcal{K}_t\) is validated knowledge, counterevidence, and provenance;
-- \(\mathcal{P}_t\) is the policy and governance envelope.
+- $\mathcal{B}_t$ is the portfolio of active and archived bucket states;
+- $\mathcal{L}_t$ is the typed language of admissible structural hypotheses;
+- $\mathcal{O}_t$ is the registry of generation, composition, and transformation operators;
+- $\Phi_t$ is the set of directional fields and their control policies;
+- $\mathcal{K}_t$ is validated knowledge, counterevidence, and provenance;
+- $\mathcal{P}_t$ is the policy and governance envelope.
 
-A conventional adaptive search holds \(\mathcal{L}_t=\mathcal{L}_0\) and \(\mathcal{O}_t=\mathcal{O}_0\), even if its bucket states and directional fields change. An extensible system permits controlled transitions
+A conventional adaptive search holds $\mathcal{L}_t=\mathcal{L}_0$ and $\mathcal{O}_t=\mathcal{O}_0$, even if its bucket states and directional fields change. An extensible system permits controlled transitions
 
-\[
+$$
 (\mathcal{L}_{t+1},\mathcal{O}_{t+1})
-=\operatorname{Extend}(\mathcal{L}_t,\mathcal{O}_t;\Delta_t),
-\]
+=\mathrm{Extend}(\mathcal{L}_t,\mathcal{O}_t;\Delta_t),
+$$
 
-where \(\Delta_t\) is a proposed, tested structural extension. The existence of this operation is necessary for one important form of open-endedness, but is not by itself sufficient: extensions may be trivial, redundant, invalid, or eventually exhausted.
+where $\Delta_t$ is a proposed, tested structural extension. The existence of this operation is necessary for one important form of open-endedness, but is not by itself sufficient: extensions may be trivial, redundant, invalid, or eventually exhausted.
 
 ## 4. Three Distinct Kinds of Growth
 
@@ -137,12 +137,12 @@ Directional fields need not merely rank existing bucket branches. They may direc
 
 Define a conceptual extension-priority functional:
 
-\[
+$$
 J_t(\Delta)=w_u U_t(\Delta)+w_n N_t(\Delta)+w_r R_t(\Delta)
 -w_c C_t(\Delta)-w_q Q_t(\Delta),
-\]
+$$
 
-where \(U\) estimates expected utility, \(N\) measures nonredundant novelty, \(R\) estimates residual reduction, \(C\) estimates computational cost, and \(Q\) estimates validation or governance risk. The weights and scales are policy-dependent; this is a design template, not a calibrated universal scoring law.
+where $U$ estimates expected utility, $N$ measures nonredundant novelty, $R$ estimates residual reduction, $C$ estimates computational cost, and $Q$ estimates validation or governance risk. The weights and scales are policy-dependent; this is a design template, not a calibrated universal scoring law.
 
 A directional field can therefore influence both the **ordinary branch frontier** and an **extension frontier**. Feedback from validated extensions may revise both. This coupling is central: generation and selection are not independent sequential modules.
 
@@ -156,21 +156,21 @@ An open-ended system can produce endless syntactic variations without learning a
 - **Explanatory novelty:** new hypotheses that reduce residuals or predict held-out observations.
 - **Transfer novelty:** a reusable structure that succeeds in a distinct context.
 
-Let \(\operatorname{Canon}(h)\) map a hypothesis to a declared canonical representation. A simple structural novelty score might be
+Let $\mathrm{Canon}(h)$ map a hypothesis to a declared canonical representation. A simple structural novelty score might be
 
-\[
-N(h)=\min_{k\in\mathcal{A}_t} d\bigl(\operatorname{Canon}(h),\operatorname{Canon}(k)\bigr),
-\]
+$$
+N(h)=\min_{k\in\mathcal{A}_t} d\bigl(\mathrm{Canon}(h),\mathrm{Canon}(k)\bigr),
+$$
 
-where \(\mathcal{A}_t\) is an archive and \(d\) a specified structural distance. The result depends on the canonicalization and metric; high novelty alone does not establish validity, importance, or intelligence.
+where $\mathcal{A}_t$ is an archive and $d$ a specified structural distance. The result depends on the canonicalization and metric; high novelty alone does not establish validity, importance, or intelligence.
 
 ## 8. Residual-Driven Structural Invention
 
-Persistent unexplained observations can be treated as a source of growth proposals. Let \(E\) be observed evidence and \(\widehat E(H)\) the evidence explained by a hypothesis portfolio \(H\). Define a domain-specific residual operator
+Persistent unexplained observations can be treated as a source of growth proposals. Let $E$ be observed evidence and $\widehat E(H)$ the evidence explained by a hypothesis portfolio $H$. Define a domain-specific residual operator
 
-\[
-\mathcal{R}(H,E)=\operatorname{Residual}\bigl(E,\widehat E(H)\bigr).
-\]
+$$
+\mathcal{R}(H,E)=\mathrm{Residual}\bigl(E,\widehat E(H)\bigr).
+$$
 
 A residual-guided loop can: (i) cluster recurring unexplained patterns, (ii) propose new relations or abstractions, (iii) generate competing explanations, (iv) test them against fresh evidence, and (v) retain only validated, reusable improvements. Residuals can also arise from bad data, missing observations, or flawed measurement. Therefore residual magnitude is a reason to investigate, not proof that a new structural primitive is needed.
 
@@ -178,9 +178,9 @@ A residual-guided loop can: (i) cluster recurring unexplained patterns, (ii) pro
 
 D-BTP can be extended with two interacting frontiers:
 
-**Hypothesis frontier** \(\mathcal{F}^{H}_t\): ordinary bucket branches in the current language, governed by hard constraints and directional search priorities.
+**Hypothesis frontier** $\mathcal{F}^{H}_t$: ordinary bucket branches in the current language, governed by hard constraints and directional search priorities.
 
-**Extension frontier** \(\mathcal{F}^{X}_t\): candidate changes to the language, operators, abstractions, or policies, governed by extension contracts and evaluation gates.
+**Extension frontier** $\mathcal{F}^{X}_t$: candidate changes to the language, operators, abstractions, or policies, governed by extension contracts and evaluation gates.
 
 The scheduler allocates bounded resources between the two. When an extension passes its gate, the language/operator registry receives a new version and selected hypothesis buckets may be regenerated or migrated under explicit compatibility rules. Replaying prior decisions under a changed language must not silently rewrite the original evidence ledger.
 
@@ -225,16 +225,16 @@ Role separation is not sufficient to guarantee independent judgments. Shared mod
 
 Recursive self-improvement (RSI) is a stronger claim than adaptive search. We reserve the term for a verified change to the mechanisms that produce subsequent search or learning, not merely the discovery of another hypothesis.
 
-A proposed improvement \(\theta'\) to generator, evaluator, constraint plugin, or directional controller \(\theta\) should pass a controlled comparison:
+A proposed improvement $\theta'$ to generator, evaluator, constraint plugin, or directional controller $\theta$ should pass a controlled comparison:
 
-\[
+$$
 \Delta V=V(\theta';\mathcal{T}_{\mathrm{heldout}},B)
 -V(\theta;\mathcal{T}_{\mathrm{heldout}},B),
-\]
+$$
 
-where both configurations face the same held-out task suite and resource budget \(B\). Promotion requires a predefined threshold, uncertainty analysis, and checks for regressions in safety, diversity, or correctness. The candidate must not define its own acceptance criteria without independent review.
+where both configurations face the same held-out task suite and resource budget $B$. Promotion requires a predefined threshold, uncertainty analysis, and checks for regressions in safety, diversity, or correctness. The candidate must not define its own acceptance criteria without independent review.
 
-Recursive improvements may plateau or regress. There is no general guarantee of indefinite positive \(\Delta V\).
+Recursive improvements may plateau or regress. There is no general guarantee of indefinite positive $\Delta V$.
 
 ## 13. Reference Evolution Cycle
 

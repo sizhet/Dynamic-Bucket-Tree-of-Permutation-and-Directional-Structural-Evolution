@@ -77,47 +77,47 @@ A simplistic pipeline would be `generate → score → select`. That is a useful
 
 Following D-BTP-002 and D-BTP-003, represent a bucket as
 
-\[
+$$
 \mathcal B_t=(H_t,S_t,E_t,P_t,M_t),
-\]
+$$
 
 where:
 
-- \(H_t\) is a ledger of accepted, excluded, and pending structural claims;
-- \(S_t\) is the current domain and inferred structural state;
-- \(E_t\) stores evidence, provenance, dependencies, uncertainty, and relevant scoring information;
-- \(P_t\) stores the direction-field references, control policies, and remaining resource budgets;
-- \(M_t\) stores execution metadata, generation epochs, visited signatures, and reproducibility information.
+- $H_t$ is a ledger of accepted, excluded, and pending structural claims;
+- $S_t$ is the current domain and inferred structural state;
+- $E_t$ stores evidence, provenance, dependencies, uncertainty, and relevant scoring information;
+- $P_t$ stores the direction-field references, control policies, and remaining resource budgets;
+- $M_t$ stores execution metadata, generation epochs, visited signatures, and reproducibility information.
 
 The observation ledger should be distinguished from inferred structural claims. Generating a latent actor does not make that actor an observed real-world identity.
 
 ### 3.2 Candidate generation
 
-For a bucket \(\mathcal B_t\), a generator may return a finite, budgeted set of proposed structural claims:
+For a bucket $\mathcal B_t$, a generator may return a finite, budgeted set of proposed structural claims:
 
-\[
+$$
 C_t=G(\mathcal B_t,D_t;\,\omega_t,b_t),
-\]
+$$
 
-where \(D_t\) is a directional field, \(\omega_t\) is an optional recorded random seed, and \(b_t\) is a candidate-generation budget. The generator can produce pairs, edges, cluster merges, latent-object proposals, or typed multi-object claims. A generator may also report `unknown`, `temporarily exhausted`, or `certified complete`—these are **not equivalent** outcomes.
+where $D_t$ is a directional field, $\omega_t$ is an optional recorded random seed, and $b_t$ is a candidate-generation budget. The generator can produce pairs, edges, cluster merges, latent-object proposals, or typed multi-object claims. A generator may also report `unknown`, `temporarily exhausted`, or `certified complete`—these are **not equivalent** outcomes.
 
 ### 3.3 Branch transition
 
-For an eligible candidate \(c\), a decision \(a\) may be `accept`, `exclude`, or a domain-approved refinement. A transition is
+For an eligible candidate $c$, a decision $a$ may be `accept`, `exclude`, or a domain-approved refinement. A transition is
 
-\[
+$$
 \mathcal B_{t+1}=T(\mathcal B_t,c,a;K),
-\]
+$$
 
-where \(K\) is the applicable hard-constraint system. The transition updates hypotheses, inferred state, evidence dependencies, and candidate-generation context. Hard infeasibility is a property of the constraint contract, not of a low directional score.
+where $K$ is the applicable hard-constraint system. The transition updates hypotheses, inferred state, evidence dependencies, and candidate-generation context. Hard infeasibility is a property of the constraint contract, not of a low directional score.
 
 ### 3.4 Directional field
 
 Rather than define a field as one number, define it as a state-dependent collection of guidance operators:
 
-\[
+$$
 D_t=\bigl(D_t^{\mathrm{gen}},D_t^{\mathrm{select}},D_t^{\mathrm{resource}},D_t^{\mathrm{learn}}\bigr).
-\]
+$$
 
 These components may share a model and evidence, but their outputs have different semantics. A scalar score, vector-valued preference, partial ordering, probability distribution, or policy over candidate classes can instantiate part of a field.
 
@@ -137,11 +137,11 @@ Examples include:
 
 A generator may use a proposal priority
 
-\[
+$$
 q_{\mathrm{gen}}(c\mid\mathcal B,D)=f(\mathrm{plausibility},\mathrm{novelty},\mathrm{expected\ information\ gain},\mathrm{cost},\mathrm{coverage}),
-\]
+$$
 
-where \(f\) is a policy-dependent combination, not a universal formula. A candidate can be valuable even if its present fit is modest, provided testing it may distinguish important hypotheses.
+where $f$ is a policy-dependent combination, not a universal formula. A candidate can be valuable even if its present fit is modest, provided testing it may distinguish important hypotheses.
 
 **Failure mode:** A direction-guided generator can become self-confirming, repeatedly proposing only candidates favored by its current beliefs. A practical implementation should reserve exploration capacity for alternative proposals, uncertainty-driven sampling, or controlled broad generation.
 
@@ -151,11 +151,11 @@ Selection guidance acts on the frontier of feasible buckets. Its output can be a
 
 For a scalarized controller, one possible *illustrative* priority is
 
-\[
+$$
 Q(\mathcal B)=\alpha F(\mathcal B)+\beta I(\mathcal B)+\gamma N(\mathcal B)-\delta C(\mathcal B)-\eta R(\mathcal B),
-\]
+$$
 
-where \(F\) is explanatory fit, \(I\) estimated information gain, \(N\) structural novelty, \(C\) computational cost, and \(R\) an evidence-quality or model-risk penalty. Weights depend on declared objectives and calibration. This priority is **not** a proof of posterior probability, optimality, or feasibility.
+where $F$ is explanatory fit, $I$ estimated information gain, $N$ structural novelty, $C$ computational cost, and $R$ an evidence-quality or model-risk penalty. Weights depend on declared objectives and calibration. This priority is **not** a proof of posterior probability, optimality, or feasibility.
 
 Different search regimes can implement the selection policy:
 
@@ -182,15 +182,15 @@ A resource controller can allocate:
 - branch width and hypothesis diversity;
 - validation and adversarial challenge budget.
 
-Let \(b_t(\mathcal B)\) be the assigned budget to bucket \(\mathcal B\). Then a constrained controller may solve approximately
+Let $b_t(\mathcal B)$ be the assigned budget to bucket $\mathcal B$. Then a constrained controller may solve approximately
 
-\[
+$$
 \max_{\{b_t\}}\sum_{\mathcal B\in\mathcal F_t}\widehat V(\mathcal B,b_t(\mathcal B))
 \quad\text{subject to}\quad
 \sum_{\mathcal B\in\mathcal F_t}b_t(\mathcal B)\le B_t.
-\]
+$$
 
-Here \(\widehat V\) is a predicted marginal value of computation, which must be empirically calibrated. A practical controller also needs floors or quotas for underexplored perspectives.
+Here $\widehat V$ is a predicted marginal value of computation, which must be empirically calibrated. A practical controller also needs floors or quotas for underexplored perspectives.
 
 ## 7. Multi-directional fields and perspective-aware scoring
 
@@ -198,9 +198,9 @@ There may be no single authoritative direction. Consider a blockchain actor-attr
 
 Represent a field as a vector:
 
-\[
+$$
 \mathbf d(\mathcal B)=(d_1(\mathcal B),\ldots,d_k(\mathcal B)).
-\]
+$$
 
 Possible combination rules include:
 
@@ -232,19 +232,19 @@ D-BTP-005 develops these distinctions in detail.
 
 The most important architectural claim is **bidirectional coupling**:
 
-\[
+$$
 C_t=G(\mathcal B_t,D_t),
-\]
+$$
 
-\[
+$$
 \mathcal B_{t+1}=T(\mathcal B_t,c_t,a_t),
-\]
+$$
 
-\[
-D_{t+1}=U(D_t,\operatorname{Observe}(\mathcal B_{t+1}),F_t),
-\]
+$$
+D_{t+1}=U(D_t,\mathrm{Observe}(\mathcal B_{t+1}),F_t),
+$$
 
-where \(F_t\) represents validated feedback, not merely the model's own favorable score. A system may choose \(U\) to leave the field fixed during an episode; learning the field is an optional, higher-level capability.
+where $F_t$ represents validated feedback, not merely the model's own favorable score. A system may choose $U$ to leave the field fixed during an episode; learning the field is an optional, higher-level capability.
 
 The coupling can be decomposed into four mechanisms:
 
@@ -316,11 +316,11 @@ function directionalDBTP(initialBucket, pluginSet, policy, budget):
 
 ## 12. Worked conceptual example: actor–behavior attribution
 
-Suppose observed transactions \(T_1,T_2,T_3\) and latent actors \(A_1,A_2\) form a hypothesis search. The algorithm does **not** begin by claiming that these latent actors are identified people.
+Suppose observed transactions $T_1,T_2,T_3$ and latent actors $A_1,A_2$ form a hypothesis search. The algorithm does **not** begin by claiming that these latent actors are identified people.
 
-1. A transaction-flow cue proposes \((A_1,T_1)\).
-2. Accepting that claim changes the inferred flow structure, exposing a new candidate \((A_1,T_2)\).
-3. A temporal perspective ranks \((A_2,T_2)\) more highly, while a flow perspective favors \((A_1,T_2)\).
+1. A transaction-flow cue proposes $(A_1,T_1)$.
+2. Accepting that claim changes the inferred flow structure, exposing a new candidate $(A_1,T_2)$.
+3. A temporal perspective ranks $(A_2,T_2)$ more highly, while a flow perspective favors $(A_1,T_2)$.
 4. The search preserves both feasible alternatives in a diverse hypothesis portfolio.
 5. A subsequent authorized observation may differentiate the two; if not, the result remains ambiguous.
 
@@ -328,7 +328,7 @@ This example illustrates the distinction between **control-attribution hypothese
 
 ## 13. Worked conceptual example: dynamic starmap similarity
 
-Let starmap \(A\) contain a partially observed motif and starmap \(B\) a different decomposition of a similar motif. A fixed-list matcher may fail to propose a useful node correspondence because the relevant intermediate structure is absent from its initial representation.
+Let starmap $A$ contain a partially observed motif and starmap $B$ a different decomposition of a similar motif. A fixed-list matcher may fail to propose a useful node correspondence because the relevant intermediate structure is absent from its initial representation.
 
 A dynamic generator can hypothesize a composite node or relation in one structure. A direction field favoring explanatory compression and consistency can prioritize evaluating that proposal. A constraint plugin verifies type and relational compatibility. If the composite correspondence survives evaluation, the algorithm has **discovered a candidate structural explanation**, not proven that the source graphs were intrinsically identical.
 
@@ -362,7 +362,7 @@ Each plugin should declare:
 
 ## 15. Search complexity, coverage, and quality
 
-For a fixed finite candidate set of size \(m\), binary accept/exclude branching has up to \(2^m\) decision combinations before pruning and equivalence reduction. In dynamic D-BTP, the total candidate universe may be unknown at initialization, and generation can expose additional choices. No finite worst-case bound follows from the architecture alone.
+For a fixed finite candidate set of size $m$, binary accept/exclude branching has up to $2^m$ decision combinations before pruning and equivalence reduction. In dynamic D-BTP, the total candidate universe may be unknown at initialization, and generation can expose additional choices. No finite worst-case bound follows from the architecture alone.
 
 Directional guidance may improve **anytime performance**—the quality of the best available feasible hypothesis at a fixed budget—without reducing worst-case complexity. Conversely, an overly narrow field may worsen performance by suppressing critical alternatives.
 
@@ -370,7 +370,7 @@ Useful measures include:
 
 - best feasible objective value versus elapsed compute;
 - candidate precision, recall, and discovery latency on synthetic ground truth;
-- diversity and calibration of the top-\(K\) hypothesis portfolio;
+- diversity and calibration of the top-$K$ hypothesis portfolio;
 - percentage of search effort spent on duplicate or infeasible branches;
 - number of certified closed states versus budget-limited unresolved states;
 - cross-domain transfer and sensitivity to field miscalibration.
@@ -388,7 +388,7 @@ The **quality of a field** is therefore an empirical question, not an intrinsic 
 | Incomplete candidate coverage | False declaration of a terminal leaf | Explicit coverage certificates and quiescence state |
 | Changing policy during replay | Non-reproducible search history | Versioned field and seed logs |
 | Overaggressive state merging | Loss of distinct future possibilities | Future-relevant state signatures |
-| Single-best-hypothesis collapse | Spurious certainty | Top-\(K\) and perspective portfolios |
+| Single-best-hypothesis collapse | Spurious certainty | Top-$K$ and perspective portfolios |
 | Latent actor treated as known identity | Invalid attribution claim | Separate structural, control, and identity assertions |
 
 ## 17. Testable hypotheses

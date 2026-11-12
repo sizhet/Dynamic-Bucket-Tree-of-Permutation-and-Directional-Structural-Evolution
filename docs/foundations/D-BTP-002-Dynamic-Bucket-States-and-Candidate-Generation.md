@@ -16,7 +16,7 @@ The conventional description of a Bucket Tree of Permutation (BTP) starts with a
 
 ## 1. Motivation: the fixed-list description is only a special case
 
-Let two metric structures or starmaps be \(A\) and \(B\). In a baseline static formulation, a matching procedure produces a finite candidate set \(C_0\) of node pairs. A search node stores accepted pairs, unresolved pairs, and updated matching states. Each branching step accepts or rejects one unresolved pair. A leaf is reached when the list is empty.
+Let two metric structures or starmaps be $A$ and $B$. In a baseline static formulation, a matching procedure produces a finite candidate set $C_0$ of node pairs. A search node stores accepted pairs, unresolved pairs, and updated matching states. Each branching step accepts or rejects one unresolved pair. A leaf is reached when the list is empty.
 
 This model describes a useful *implementation regime*, not the full conceptual extent of BTP. In a dynamic application, accepting or rejecting a relation can expose new candidate nodes, revise cluster membership, reveal constraints, or change which relationships are even meaningful. A candidate set that was complete at initialization may become incomplete after one transition. The appropriate generalization is therefore not merely to append entries to a list, but to make candidate discovery a function of the evolving state.
 
@@ -36,19 +36,19 @@ Dynamic BTP should not be confused with a claim that all source data are mutable
 
 ## 3. A canonical dynamic bucket
 
-A conceptual bucket at search step \(t\) is
+A conceptual bucket at search step $t$ is
 
-\[
+$$
 \mathcal B_t=(H_t,S_t,E_t,P_t,M_t).
-\]
+$$
 
 Here:
 
-1. \(H_t\) is the **hypothesis ledger**: accepted and explicitly rejected claims, plus their qualifications.
-2. \(S_t\) is the **structural state**: observed objects, inferred entities, derived relationships, constraint indexes, and domain-specific cached state.
-3. \(E_t\) is the **evidence state**: evidence references, provenance, dependencies, contradictions, and scores or bounds.
-4. \(P_t\) is the **directional/control state**: objectives, priorities, resource budgets, search policy, and possibly learned guidance.
-5. \(M_t\) is **search metadata**: branch lineage, visited-state fingerprints, candidate-disposition records, generator versions, and termination status.
+1. $H_t$ is the **hypothesis ledger**: accepted and explicitly rejected claims, plus their qualifications.
+2. $S_t$ is the **structural state**: observed objects, inferred entities, derived relationships, constraint indexes, and domain-specific cached state.
+3. $E_t$ is the **evidence state**: evidence references, provenance, dependencies, contradictions, and scores or bounds.
+4. $P_t$ is the **directional/control state**: objectives, priorities, resource budgets, search policy, and possibly learned guidance.
+5. $M_t$ is **search metadata**: branch lineage, visited-state fingerprints, candidate-disposition records, generator versions, and termination status.
 
 These are *logical components*, not mandatory separate in-memory structures. A concrete implementation may share immutable data across buckets and use deltas or persistent data structures to avoid copying whole starmaps.
 
@@ -73,19 +73,19 @@ Candidate identity should include canonical relation semantics and relevant obje
 
 ## 4. Dynamic candidate generation
 
-Instead of assuming a fixed \(C_0\), define
+Instead of assuming a fixed $C_0$, define
 
-\[
+$$
 C_t=G(\mathcal B_t;\theta_G,\mathcal R_t),
-\]
+$$
 
-where \(G\) is a domain-aware candidate generator, \(\theta_G\) its configuration, and \(\mathcal R_t\) the available resource budget. \(C_t\) may be empty, partial, ordered, or lazily streamed. The generator may use hard constraints, weak evidence, structural residuals, and a direction field to focus its proposals.
+where $G$ is a domain-aware candidate generator, $\theta_G$ its configuration, and $\mathcal R_t$ the available resource budget. $C_t$ may be empty, partial, ordered, or lazily streamed. The generator may use hard constraints, weak evidence, structural residuals, and a direction field to focus its proposals.
 
 The effective admissible frontier is
 
-\[
-F_t=\operatorname{Deduplicate}(C_t)\setminus\operatorname{Disposed}(H_t,M_t),
-\]
+$$
+F_t=\mathrm{Deduplicate}(C_t)\setminus\mathrm{Disposed}(H_t,M_t),
+$$
 
 followed by feasibility filtering. A finite materialized frontier is an optional cache; it is not the definition of the search state.
 
@@ -99,12 +99,12 @@ A generated pair is a proposal. A directional score may justify evaluating it ea
 
 ## 5. Transition semantics
 
-Let \(q\in F_t\) be a selected candidate. The conventional binary decision is preserved:
+Let $q\in F_t$ be a selected candidate. The conventional binary decision is preserved:
 
-\[
+$$
 \mathcal B_{t+1}^{+}=T_{\mathrm{accept}}(\mathcal B_t,q),\qquad
 \mathcal B_{t+1}^{-}=T_{\mathrm{reject}}(\mathcal B_t,q).
-\]
+$$
 
 Each transition performs a transaction-like sequence:
 
@@ -159,30 +159,30 @@ If the generator is incomplete, a globally optimal hypothesis may never be propo
 
 ## 8. Directional generation and selection
 
-A direction field \(D_t\), represented within \(P_t\), may influence both which candidates are generated and which buckets are expanded:
+A direction field $D_t$, represented within $P_t$, may influence both which candidates are generated and which buckets are expanded:
 
-\[
+$$
 C_t=G(S_t,H_t,E_t,D_t),\qquad
-q_t=\operatorname{Choose}(C_t,D_t,\mathcal R_t).
-\]
+q_t=\mathrm{Choose}(C_t,D_t,\mathcal R_t).
+$$
 
 After a transition and evidence update, the guidance may itself be revised:
 
-\[
+$$
 D_{t+1}=U(D_t,\mathcal B_{t+1},\text{feedback}_t).
-\]
+$$
 
 This is a **coupled generation–selection–feedback** model, not merely a generate-then-rank pipeline. Nevertheless, it is useful to distinguish a fixed-direction implementation from one that learns or changes the field. Updating search scores is not, by itself, recursive self-improvement.
 
 ### 8.1 Multiple directional objectives
 
-Evidence fit, explanation complexity, expected information gain, search diversity, and compute cost may conflict. The controller may retain a Pareto or diversified top-\(k\) portfolio rather than collapsing every consideration into one scalar. Directional guidance must not silently weaken hard constraints.
+Evidence fit, explanation complexity, expected information gain, search diversity, and compute cost may conflict. The controller may retain a Pareto or diversified top-$k$ portfolio rather than collapsing every consideration into one scalar. Directional guidance must not silently weaken hard constraints.
 
 ## 9. Illustrative case: blockchain actor attribution
 
-Consider a synthetic ledger with observable transactions \(T_1,T_2,\ldots\) and latent control actors \(A_1,A_2,\ldots\). A candidate relation \((A_i,T_j)\) means *actor \(A_i\) may control or be responsible for behavior \(T_j\) under a stated attribution model*. Unlike ordinary one-to-one graph matching, one actor may be associated with many transactions; a transaction may also involve multiple distinct roles.
+Consider a synthetic ledger with observable transactions $T_1,T_2,\ldots$ and latent control actors $A_1,A_2,\ldots$. A candidate relation $(A_i,T_j)$ means *actor $A_i$ may control or be responsible for behavior $T_j$ under a stated attribution model*. Unlike ordinary one-to-one graph matching, one actor may be associated with many transactions; a transaction may also involve multiple distinct roles.
 
-Suppose accepting \((A_1,T_1)\) creates a provisional behavioral cluster. The cluster may suggest a new candidate \((A_1,T_3)\) that was not present in an initial pair list. Rejecting \((A_1,T_3)\) may prompt a different cluster interpretation and a candidate involving \(A_2\). The search state, candidate generator, and evidence interpretation evolve together.
+Suppose accepting $(A_1,T_1)$ creates a provisional behavioral cluster. The cluster may suggest a new candidate $(A_1,T_3)$ that was not present in an initial pair list. Rejecting $(A_1,T_3)$ may prompt a different cluster interpretation and a candidate involving $A_2$. The search state, candidate generator, and evidence interpretation evolve together.
 
 The system must distinguish *transaction-level structural similarity*, *common control*, and *real-world identity*. Neither shared patterns nor a high-scoring leaf establish personal identity. For validation, use synthetic or properly authorized datasets with known ground truth, and report uncertainty and alternative explanations.
 
@@ -236,7 +236,7 @@ This pseudocode is illustrative, not a normative reference implementation. In pa
 
 ## 11. Complexity and efficiency considerations
 
-For a fixed set of \(m\) independent binary candidates, the naive decision space has up to \(2^m\) combinations. With dynamic generation, \(m\) may be unknown in advance or grow during search. There is no universal finite bound without assumptions on the structural universe, candidate generator, and expansion depth.
+For a fixed set of $m$ independent binary candidates, the naive decision space has up to $2^m$ combinations. With dynamic generation, $m$ may be unknown in advance or grow during search. There is no universal finite bound without assumptions on the structural universe, candidate generator, and expansion depth.
 
 Practical efficiency therefore depends on candidate quality, early constraint propagation, cached structural deltas, admissible bounds, branch ordering, diversity preservation, and resource control. A learned direction field can improve search efficiency, but may also introduce bias, overlook counterevidence, or amplify generator errors. These are empirical questions.
 

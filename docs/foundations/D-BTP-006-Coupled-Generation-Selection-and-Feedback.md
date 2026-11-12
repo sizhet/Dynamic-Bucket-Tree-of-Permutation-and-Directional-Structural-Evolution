@@ -60,52 +60,52 @@ The loop does not require every step to change the direction field. A stable ext
 
 Let a search bucket at time *t* be
 
-\[
+$$
 B_t=(H_t,S_t,E_t,X_t,M_t),
-\]
+$$
 
 where:
 
-- \(H_t\) is the set of accepted structural hypotheses and their dependencies;
-- \(S_t\) is the current domain-specific structural state, including inferred and observed elements with distinct provenance;
-- \(E_t\) is the accumulated evidence ledger and derived statistics;
-- \(X_t\) records explicit exclusions, conflicts, and already examined decisions;
-- \(M_t\) is operational metadata, including budget, generator cursor, state version, and replay information.
+- $H_t$ is the set of accepted structural hypotheses and their dependencies;
+- $S_t$ is the current domain-specific structural state, including inferred and observed elements with distinct provenance;
+- $E_t$ is the accumulated evidence ledger and derived statistics;
+- $X_t$ records explicit exclusions, conflicts, and already examined decisions;
+- $M_t$ is operational metadata, including budget, generator cursor, state version, and replay information.
 
-A **directional field** \(D_t\) is a structured policy or vector of priorities, not necessarily a scalar similarity score. It may contain task objectives, expected information gain, confidence calibration, risk, novelty, and resource costs. A **generation policy** \(G_{\theta_t}\) proposes candidate pairs or transformations. A **selection policy** \(\Pi_{\phi_t}\) determines which eligible proposal or frontier bucket to expand. The parameters \(\theta_t\) and \(\phi_t\) may be fixed or learned.
+A **directional field** $D_t$ is a structured policy or vector of priorities, not necessarily a scalar similarity score. It may contain task objectives, expected information gain, confidence calibration, risk, novelty, and resource costs. A **generation policy** $G_{\theta_t}$ proposes candidate pairs or transformations. A **selection policy** $\Pi_{\phi_t}$ determines which eligible proposal or frontier bucket to expand. The parameters $\theta_t$ and $\phi_t$ may be fixed or learned.
 
-The distinction between *search-state evolution* (changing \(B_t\)) and *policy evolution* (changing \(\theta_t,\phi_t,D_t\)) is essential: dynamic candidates do not, by themselves, imply learning or recursive self-improvement.
+The distinction between *search-state evolution* (changing $B_t$) and *policy evolution* (changing $\theta_t,\phi_t,D_t$) is essential: dynamic candidates do not, by themselves, imply learning or recursive self-improvement.
 
 ## 4. Formal Coupled Transition
 
 One illustrative transition is:
 
-\[
+$$
 C_t=G_{\theta_t}(B_t,D_t;\mathcal K_t),
-\]
+$$
 
-\[
+$$
 c_t=\Pi_{\phi_t}(C_t,\mathcal F_t,D_t,\mathcal B_t),
-\]
+$$
 
-\[
+$$
 (B_{t+1}^{+},B_{t+1}^{-})=T(B_t,c_t;\mathcal C),
-\]
+$$
 
-where \(\mathcal K_t\) is available knowledge, \(\mathcal F_t\) is the frontier, \(\mathcal B_t\) is remaining budget, and \(\mathcal C\) is the domain constraint contract. The two children correspond to accepting and explicitly excluding the selected candidate, subject to feasibility checks. Evidence evaluation and feedback then follow:
+where $\mathcal K_t$ is available knowledge, $\mathcal F_t$ is the frontier, $\mathcal B_t$ is remaining budget, and $\mathcal C$ is the domain constraint contract. The two children correspond to accepting and explicitly excluding the selected candidate, subject to feasibility checks. Evidence evaluation and feedback then follow:
 
-\[
+$$
 Z_{t+1}=V(B_{t+1}^{\pm},\mathcal O_t),
-\]
+$$
 
-\[
+$$
 (D_{t+1},\theta_{t+1},\phi_{t+1})
 =U(D_t,\theta_t,\phi_t,Z_{t+1};\mathcal G),
-\]
+$$
 
-where \(\mathcal O_t\) denotes observations and \(\mathcal G\) denotes governance constraints. The update operator \(U\) may be the identity. Importantly, the field used to prioritize search is not automatically a posterior probability or a proof of attribution.
+where $\mathcal O_t$ denotes observations and $\mathcal G$ denotes governance constraints. The update operator $U$ may be the identity. Importantly, the field used to prioritize search is not automatically a posterior probability or a proof of attribution.
 
-This formulation describes a *family* of algorithms. Different choices of \(G,\Pi,T,V,U\) lead to different completeness, cost, and calibration properties.
+This formulation describes a *family* of algorithms. Different choices of $G,\Pi,T,V,U$ lead to different completeness, cost, and calibration properties.
 
 ## 5. The Two-Way Coupling
 
@@ -141,9 +141,9 @@ An external goal contract governs all three. Self-modifying direction fields mus
 
 A single scalar objective can hide valuable tradeoffs. Let
 
-\[
+$$
 D_t(B)=(q_{fit},q_{info},q_{novelty},q_{risk},q_{cost},q_{diversity}).
-\]
+$$
 
 The components need not share units or support a naive weighted sum. A policy can use Pareto dominance, lexicographic constraints, bounded scalarization, or a portfolio of distinct search strategies. The frontier should retain alternative explanations when the evidence cannot distinguish them.
 
@@ -215,7 +215,7 @@ This pseudocode omits implementation details, including asynchronous generators,
 
 ## 12. Computational Complexity and Tradeoffs
 
-For a fixed set of \(m\) binary candidate decisions, exhaustive branching has up to \(2^m\) assignments before constraints and equivalence reduction. Dynamic generation removes the assumption that \(m\) is known in advance; it does not remove combinatorial hardness. If the generator can produce unbounded distinct candidates, termination is not guaranteed without a finite closure condition, a well-founded progress measure, or an explicit budget.
+For a fixed set of $m$ binary candidate decisions, exhaustive branching has up to $2^m$ assignments before constraints and equivalence reduction. Dynamic generation removes the assumption that $m$ is known in advance; it does not remove combinatorial hardness. If the generator can produce unbounded distinct candidates, termination is not guaranteed without a finite closure condition, a well-founded progress measure, or an explicit budget.
 
 Directional selection can improve **anytime performance** under a budget, but may worsen completeness or introduce bias. Sound branch-and-bound requires valid upper bounds; heuristic pruning does not establish optimality. Policy-learning overhead must be included in comparisons, not hidden outside the runtime budget.
 
