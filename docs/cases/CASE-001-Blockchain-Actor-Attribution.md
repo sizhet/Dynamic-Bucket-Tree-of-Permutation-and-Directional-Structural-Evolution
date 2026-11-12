@@ -43,33 +43,33 @@ None of these capabilities guarantees unique attribution or polynomial-time infe
 
 Let the observed blockchain structure be
 
-\[
+$$
 G_O=(V_O,E_O,X_O),
-\]
+$$
 
-where \(V_O\) represents observed addresses, contracts, transactions, and optionally time-indexed behavioral events; \(E_O\) represents transfers, calls, temporal succession, and other typed relationships; and \(X_O\) contains features with provenance and measurement uncertainty.
+where $V_O$ represents observed addresses, contracts, transactions, and optionally time-indexed behavioral events; $E_O$ represents transfers, calls, temporal succession, and other typed relationships; and $X_O$ contains features with provenance and measurement uncertainty.
 
 Let the latent actor structure be
 
-\[
+$$
 G_A=(V_A,E_A,X_A),
-\]
+$$
 
-where \(V_A\) consists of hypothesized operational actors, potentially created or split during search, and \(E_A\) represents hypothesized control, coordination, or service-mediated relationships.
+where $V_A$ consists of hypothesized operational actors, potentially created or split during search, and $E_A$ represents hypothesized control, coordination, or service-mediated relationships.
 
 The inference object is a typed, possibly many-to-one relation
 
-\[
+$$
 R\subseteq V_A\times V_O\times \mathcal T,
-\]
+$$
 
-with \(\mathcal T\) denoting relation types such as `controls`, `initiated`, `operated`, `benefited-from`, `intermediated`, and `unknown`. A relation may have a temporal validity interval and a confidence assessment. The relation is **not** assumed to be a bijection or even a total mapping.
+with $\mathcal T$ denoting relation types such as `controls`, `initiated`, `operated`, `benefited-from`, `intermediated`, and `unknown`. A relation may have a temporal validity interval and a confidence assessment. The relation is **not** assumed to be a bijection or even a total mapping.
 
 An actor node may be a wildcard-like placeholder whose properties are refined as evidence accumulates. The model may create additional actor nodes when a proposed grouping becomes inconsistent or when a split better explains the observations.
 
 ## 4. Canonical D-BTP bucket for this case
 
-A search bucket \(B_t\) contains:
+A search bucket $B_t$ contains:
 
 - **Hypothesis ledger:** accepted, rejected, deferred, and superseded actor–behavior relations, including typed relation semantics.
 - **Structural state:** the current actor graph, behavior partitions, unresolved relations, temporal constraints, and derived features.
@@ -100,11 +100,11 @@ All identifiers above are illustrative and synthetic.
 
 Candidate generation is state-dependent:
 
-\[
-C_t=\operatorname{Generate}(B_t,G_O,\Phi_t,\mathcal P_G),
-\]
+$$
+C_t=\mathrm{Generate}(B_t,G_O,\Phi_t,\mathcal P_G),
+$$
 
-where \(\Phi_t\) is the current directional field and \(\mathcal P_G\) is a versioned set of generator plugins.
+where $\Phi_t$ is the current directional field and $\mathcal P_G$ is a versioned set of generator plugins.
 
 Generators may propose:
 
@@ -163,11 +163,11 @@ Off-chain records, if ever used, require a lawful basis and explicit authorizati
 
 Let a directional field be a vector
 
-\[
+$$
 \Phi_t=(\phi_{\mathrm{fit}},\phi_{\mathrm{discrimination}},
 \phi_{\mathrm{information}},\phi_{\mathrm{diversity}},
 \phi_{\mathrm{cost}},\phi_{\mathrm{risk}})_t.
-\]
+$$
 
 Illustrative components are:
 
@@ -180,13 +180,13 @@ Illustrative components are:
 
 A search controller may use a policy such as
 
-\[
-\operatorname{Priority}(c\mid B_t)=
-F\bigl(\Phi_t,\operatorname{Features}(c,B_t),
-\operatorname{Uncertainty}(c),\operatorname{Cost}(c)\bigr),
-\]
+$$
+\mathrm{Priority}(c\mid B_t)=
+F\bigl(\Phi_t,\mathrm{Features}(c,B_t),
+\mathrm{Uncertainty}(c),\mathrm{Cost}(c)\bigr),
+$$
 
-where \(F\) is a declared, versioned policy rather than an assumed universal formula.
+where $F$ is a declared, versioned policy rather than an assumed universal formula.
 
 The directional field influences **both** which candidates are generated and which generated candidates are explored. Evidence gained from exploration can subsequently update the field. This is a coupled process, not merely “generate everything, then sort.”
 

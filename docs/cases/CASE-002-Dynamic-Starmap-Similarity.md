@@ -40,53 +40,53 @@ This is a methodological case, not a benchmark report. All numeric examples belo
 
 Let two starmaps be attributed relational structures
 
-\[
+$$
 A=(V_A,E_A,\tau_A,\alpha_A),\qquad B=(V_B,E_B,\tau_B,\alpha_B),
-\]
+$$
 
-where \(V\) denotes nodes, \(E\) typed and possibly directed relations, \(\tau\) node/edge types, and \(\alpha\) attributes or metrics. Starmaps may contain hyperedges, uncertain relations, temporal annotations, or nested submaps, provided their semantics are declared in a schema.
+where $V$ denotes nodes, $E$ typed and possibly directed relations, $\tau$ node/edge types, and $\alpha$ attributes or metrics. Starmaps may contain hyperedges, uncertain relations, temporal annotations, or nested submaps, provided their semantics are declared in a schema.
 
-A correspondence hypothesis is a typed relation \(h=(a,b,r,\pi)\), with \(a\in V_A\), \(b\in V_B\), mapping relation \(r\), and provenance \(\pi\). For conventional one-to-one matching, \(r\) means `corresponds-to`; for generalized alignment it may express partial, many-to-one, split, merge, or abstraction-level correspondence. Such generalizations require an explicit cardinality policy; they must not be assumed by default.
+A correspondence hypothesis is a typed relation $h=(a,b,r,\pi)$, with $a\in V_A$, $b\in V_B$, mapping relation $r$, and provenance $\pi$. For conventional one-to-one matching, $r$ means `corresponds-to`; for generalized alignment it may express partial, many-to-one, split, merge, or abstraction-level correspondence. Such generalizations require an explicit cardinality policy; they must not be assumed by default.
 
-A partial alignment \(M\subseteq V_A\times V_B\) is feasible if it satisfies a declared hard-constraint family \(\mathcal C_H\):
+A partial alignment $M\subseteq V_A\times V_B$ is feasible if it satisfies a declared hard-constraint family $\mathcal C_H$:
 
-\[
-\operatorname{Feasible}(M)\iff \bigwedge_{c\in\mathcal C_H}c(M)=\mathrm{true}.
-\]
+$$
+\mathrm{Feasible}(M)\iff \bigwedge_{c\in\mathcal C_H}c(M)=\mathrm{true}.
+$$
 
 Unknown constraint outcomes are not automatically `true` or `false`. The evaluation contract specifies whether they require deferral, further evidence, or a conservative non-pruning branch.
 
 A generic structural objective is
 
-\[
+$$
 J(M)=w_n N(M)+w_e R(M)+w_a A(M)-w_u U(M)-w_x X(M),
-\]
+$$
 
-where \(N\) rewards compatible nodes, \(R\) rewards preserved relations, \(A\) rewards attribute compatibility, \(U\) penalizes unmatched structural mass, and \(X\) penalizes soft inconsistencies. Each term needs an operational definition and scale. A metric *distance* may instead be minimized, or multiple non-commensurate objectives may be retained as a Pareto portfolio. This is not a claim that a single score captures all structural similarity.
+where $N$ rewards compatible nodes, $R$ rewards preserved relations, $A$ rewards attribute compatibility, $U$ penalizes unmatched structural mass, and $X$ penalizes soft inconsistencies. Each term needs an operational definition and scale. A metric *distance* may instead be minimized, or multiple non-commensurate objectives may be retained as a Pareto portfolio. This is not a claim that a single score captures all structural similarity.
 
 **Unaligned AND interpretation.** The alignment seeks a jointly consistent structural intersection without presupposing that node indices or local coordinate frames coincide. The matching relation itself is part of the hypothesis. In particular, unaligned AND is not ordinary elementwise intersection of already aligned arrays.
 
 ## 3. Baseline Static BTP
 
-A useful baseline creates a finite candidate set \(C_0\subseteq V_A\times V_B\), then explores acceptance/exclusion decisions under constraint plugins. Its strengths include reproducible candidate coverage, simpler bookkeeping, and lower generator overhead. Its limitations arise when useful correspondences are conditional on earlier choices, inferred abstraction levels, discovered motifs, or revised context.
+A useful baseline creates a finite candidate set $C_0\subseteq V_A\times V_B$, then explores acceptance/exclusion decisions under constraint plugins. Its strengths include reproducible candidate coverage, simpler bookkeeping, and lower generator overhead. Its limitations arise when useful correspondences are conditional on earlier choices, inferred abstraction levels, discovered motifs, or revised context.
 
 Static BTP should not be caricatured as an exhaustive brute-force matcher: a strong static baseline may use informative similarity metrics, structural filtering, branch-and-bound, memoization, and plugin-driven feasibility. The comparison must hold these capabilities as constant as practical.
 
 ## 4. Dynamic Bucket State
 
-Define a Bucket at search step \(t\) as
+Define a Bucket at search step $t$ as
 
-\[
+$$
 \mathcal B_t=(H_t,S_t,E_t,P_t,M_t),
-\]
+$$
 
 where:
 
-- \(H_t\): hypothesis ledger with candidate dispositions (`proposed`, `accepted`, `excluded`, `deferred`) and reasons;
-- \(S_t\): derived structural alignment state, domains, matched subgraphs, and unresolved residuals;
-- \(E_t\): evidence, confidence annotations, counterevidence, and provenance/dependency records;
-- \(P_t\): directional field configuration, priorities, exploration quotas, and policy version;
-- \(M_t\): search metadata, budget consumption, lineage, fingerprints, and termination status.
+- $H_t$: hypothesis ledger with candidate dispositions (`proposed`, `accepted`, `excluded`, `deferred`) and reasons;
+- $S_t$: derived structural alignment state, domains, matched subgraphs, and unresolved residuals;
+- $E_t$: evidence, confidence annotations, counterevidence, and provenance/dependency records;
+- $P_t$: directional field configuration, priorities, exploration quotas, and policy version;
+- $M_t$: search metadata, budget consumption, lineage, fingerprints, and termination status.
 
 A Bucket represents a *partial hypothesis*, not an assertion that its correspondence is true. Two Buckets may disagree and both remain valid search states until a hard contradiction or an explicit portfolio policy removes one from active exploration.
 
@@ -96,13 +96,13 @@ The ledger must distinguish a candidate that has never been generated from one t
 
 The dynamic generator is
 
-\[
+$$
 C_t=G(A,B,\mathcal B_t,\mathcal R_t;\theta_G),
-\]
+$$
 
-where \(\mathcal R_t\) is a registry of available candidate sources and \(\theta_G\) the generator configuration. Candidate generation may be triggered by:
+where $\mathcal R_t$ is a registry of available candidate sources and $\theta_G$ the generator configuration. Candidate generation may be triggered by:
 
-1. **Neighborhood exposure:** accepting \((a,b)\) suggests pairs among neighbors of \(a\) and \(b\).
+1. **Neighborhood exposure:** accepting $(a,b)$ suggests pairs among neighbors of $a$ and $b$.
 2. **Motif propagation:** a newly aligned triangle, path, or typed relation reveals additional motifs.
 3. **Residual targeting:** unmatched high-information substructures become candidate seeds.
 4. **Abstraction shift:** failure at a fine granularity suggests comparison at a coarser level.
@@ -113,17 +113,17 @@ Generators should declare their coverage assumptions. If a generator is selectiv
 
 ## 6. Dynamic State Transitions
 
-For candidate \(h\), the acceptance transition is
+For candidate $h$, the acceptance transition is
 
-\[
+$$
 \mathcal B_{t+1}=T_{+}(\mathcal B_t,h),
-\]
+$$
 
 which updates the ledger, applies hard constraints, propagates structural consequences, records evidence, and may trigger new candidates. The exclusion transition
 
-\[
+$$
 \mathcal B'_{t+1}=T_{-}(\mathcal B_t,h)
-\]
+$$
 
 records a rejected branch decision and may also reveal new alternatives. Rejection of a hypothesis is not equivalent to proving that all structurally related candidates are invalid.
 
@@ -133,10 +133,10 @@ Each transition must preserve: internal ledger consistency; nonviolation of hard
 
 For conventional injective alignment, one-to-one uniqueness can be a hard constraint:
 
-\[
+$$
 (a,b),(a,b')\in M\Rightarrow b=b',\quad
 (a,b),(a',b)\in M\Rightarrow a=a'.
-\]
+$$
 
 Other constraints include node-type compatibility, edge-direction preservation, relation-type preservation, temporal ordering, mandatory anchors, cardinality limits, and domain-specific invariants. Some apparent mismatches are *soft*: a missing edge might reflect incomplete observation rather than an impossible alignment.
 
@@ -146,14 +146,14 @@ A plugin may also return *entailed* assignments or domain reductions. Such propa
 
 ## 8. Directional Fields: Generation and Selection
 
-A directional field \(D_t\) is a policy-bearing object, not merely a post hoc similarity score. It may contain weights, target regions, exploration quotas, uncertainty preferences, risk penalties, and a versioned update rule. Two roles must be distinguished:
+A directional field $D_t$ is a policy-bearing object, not merely a post hoc similarity score. It may contain weights, target regions, exploration quotas, uncertainty preferences, risk penalties, and a versioned update rule. Two roles must be distinguished:
 
-\[
+$$
 C_t\sim G(\mathcal B_t\mid D_t),\qquad
-\operatorname{priority}(\mathcal B_t,h)=Q(\mathcal B_t,h\mid D_t).
-\]
+\mathrm{priority}(\mathcal B_t,h)=Q(\mathcal B_t,h\mid D_t).
+$$
 
-The first changes the candidate distribution or coverage; the second changes selection and resource allocation. Their interaction is the central D-BTP mechanism. A policy that only reranks a fixed \(C_0\) is a useful baseline but not the full coupled design.
+The first changes the candidate distribution or coverage; the second changes selection and resource allocation. Their interaction is the central D-BTP mechanism. A policy that only reranks a fixed $C_0$ is a useful baseline but not the full coupled design.
 
 Examples of direction dimensions include local metric similarity, edge-consistency potential, structural novelty, expected information gain, uncertainty reduction, computational cost, and residual coverage. A policy should reserve a configurable fraction of budget for alternative hypotheses and counterevidence so that early noisy guidance does not irreversibly dominate search.
 
@@ -188,13 +188,13 @@ This example illustrates *mechanism*, not evidence that dynamic BTP is faster. A
 
 Similarity should be reported with its coverage and normalization policy. A high score on a tiny matched subgraph may be misleading if most of the maps remain unmatched. One possible normalized score is
 
-\[
-\operatorname{Sim}(M)=\frac{\operatorname{matched\_structural\_mass}(M)}{\operatorname{reference\_mass}(A,B)}-\lambda\operatorname{soft\_violations}(M),
-\]
+$$
+\mathrm{Sim}(M)=\frac{\mathrm{matched\_structural\_mass}(M)}{\mathrm{reference\_mass}(A,B)}-\lambda\mathrm{soft\_violations}(M),
+$$
 
-where the denominator is explicitly chosen (union mass, maximum mass, task-weighted mass, etc.). This formula is illustrative, not canonical. Asymmetric tasks may require directional coverage scores \(\operatorname{Coverage}_{A\to B}\) and \(\operatorname{Coverage}_{B\to A}\) rather than a symmetric metric.
+where the denominator is explicitly chosen (union mass, maximum mass, task-weighted mass, etc.). This formula is illustrative, not canonical. Asymmetric tasks may require directional coverage scores $\mathrm{Coverage}_{A\to B}$ and $\mathrm{Coverage}_{B\to A}$ rather than a symmetric metric.
 
-When defining a distance \(d(A,B)\), do not call it a mathematical metric without checking nonnegativity, identity of indiscernibles, symmetry, and triangle inequality. Approximate graph edit distance, maximum common subgraph, and attributed graph matching have different semantics and complexity properties.
+When defining a distance $d(A,B)$, do not call it a mathematical metric without checking nonnegativity, identity of indiscernibles, symmetry, and triangle inequality. Approximate graph edit distance, maximum common subgraph, and attributed graph matching have different semantics and complexity properties.
 
 ## 12. Search Frontier, Bounds, and Termination
 

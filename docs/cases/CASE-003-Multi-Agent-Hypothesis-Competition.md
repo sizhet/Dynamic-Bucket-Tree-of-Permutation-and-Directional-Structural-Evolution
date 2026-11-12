@@ -29,23 +29,23 @@ This case turns those ideas into a controlled experiment: agents may propose dif
 
 Let a structural task be
 
-\[
+$$
 \mathcal T=(X,\mathcal R,\mathcal C_h,\mathcal E,\mathcal B,\mathcal O),
-\]
+$$
 
-where \(X\) denotes observed structural elements, \(\mathcal R\) possible relations, \(\mathcal C_h\) hard constraints, \(\mathcal E\) available evidence, \(\mathcal B\) a resource budget, and \(\mathcal O\) evaluation objectives. A hypothesis \(h\) is a partial or complete structural assignment. Its feasibility is
+where $X$ denotes observed structural elements, $\mathcal R$ possible relations, $\mathcal C_h$ hard constraints, $\mathcal E$ available evidence, $\mathcal B$ a resource budget, and $\mathcal O$ evaluation objectives. A hypothesis $h$ is a partial or complete structural assignment. Its feasibility is
 
-\[
+$$
 F(h)=\bigwedge_{c\in\mathcal C_h}c(h),
-\]
+$$
 
 where unresolved constraints may return `UNKNOWN`, not automatically `PASS`. Feasible hypotheses are ranked using evidence and directional objectives, which must not redefine feasibility.
 
-Each agent \(a_i\) maintains a local view \(\mathcal B_{i,t}\), a directional policy \(\pi_{i,t}\), and an evidence ledger. The collective system maintains a shared registry of versioned hypotheses and provenance, not a single unquestioned consensus.
+Each agent $a_i$ maintains a local view $\mathcal B_{i,t}$, a directional policy $\pi_{i,t}$, and an evidence ledger. The collective system maintains a shared registry of versioned hypotheses and provenance, not a single unquestioned consensus.
 
 ## 4. Synthetic benchmark: the hidden relay network
 
-Consider a generated network of six observed event nodes \(e_1,\ldots,e_6\) and four latent functional units \(u_A,u_B,u_C,u_D\). The ground-truth simulator constructs a directed workflow with branching, a shared relay unit, and occasional missing observations. Each observed event has a timestamp band, an operation label, and noisy relation evidence. The agent's task is to infer a parsimonious latent structural explanation consistent with known hard rules.
+Consider a generated network of six observed event nodes $e_1,\ldots,e_6$ and four latent functional units $u_A,u_B,u_C,u_D$. The ground-truth simulator constructs a directed workflow with branching, a shared relay unit, and occasional missing observations. Each observed event has a timestamp band, an operation label, and noisy relation evidence. The agent's task is to infer a parsimonious latent structural explanation consistent with known hard rules.
 
 The generator controls:
 
@@ -64,7 +64,7 @@ For illustration, three plausible starting hypotheses are:
 
 | Hypothesis | Structural explanation | Initial attraction | Key vulnerability |
 |---|---|---|---|
-| H-A | One central relay explains events \(e_2,e_3,e_5\) | Strong temporal co-occurrence | May violate capacity or ordering constraints |
+| H-A | One central relay explains events $e_2,e_3,e_5$ | Strong temporal co-occurrence | May violate capacity or ordering constraints |
 | H-B | Two specialized relays divide those events | Better operation-type consistency | Requires an additional latent unit |
 | H-C | One relay plus an unobserved intermediate unit | Explains missing edge pattern | Adds unsupported structural complexity |
 
@@ -137,17 +137,17 @@ Arbitration never converts agent vote counts into hard truth. A majority can sha
 
 Let each agent have a vector-valued assessment
 
-\[
+$$
 \mathbf s_i(h)=(s_{\text{fit}},s_{\text{coverage}},s_{\text{simplicity}},s_{\text{novelty}},s_{\text{information}}).
-\]
+$$
 
 A controller may assign an agent-specific priority
 
-\[
+$$
 P_i(h)=w_i^\top\mathbf s_i(h)+\beta_i U_i(h)-\lambda_i C_i(h),
-\]
+$$
 
-where \(U_i\) represents uncertainty or exploration value and \(C_i\) expected computation cost. This is a scheduling heuristic, not a feasibility theorem or calibrated probability unless separately validated.
+where $U_i$ represents uncertainty or exploration value and $C_i$ expected computation cost. This is a scheduling heuristic, not a feasibility theorem or calibrated probability unless separately validated.
 
 The portfolio should include Pareto-non-dominated candidates and optionally reserve a fraction of budget for deliberately different hypotheses. Diversity can be measured by assignment disagreement, graph edit distance, or distinct explanatory motifs. A quota prevents the highest-scoring policy from monopolizing all future generation.
 
@@ -155,9 +155,9 @@ The portfolio should include Pareto-non-dominated candidates and optionally rese
 
 Candidate sets are conditional on current structural decisions:
 
-\[
+$$
 \mathcal K_{i,t}=G_i(\mathcal B_{i,t},\mathcal E_t,\pi_{i,t},\mathcal R_t).
-\]
+$$
 
 Accepting a relation may reveal a new candidate through constraint propagation or an inferred motif. Rejecting one relation may trigger a split hypothesis or an alternative latent node. Thus, generation and selection interact: a directional field influences which branch is explored, while that branch changes the future generable space.
 
@@ -167,23 +167,23 @@ A candidate generator must report its generation scope and any known incompleten
 
 Hard constraints include rules explicitly guaranteed by the synthetic task, such as a prohibited operation transition or an impossible temporal ordering. Soft evidence includes noisy co-occurrence, partial motif similarity, and learned directional predictions. Conditional constraints apply only when their preconditions are established.
 
-For example, a strong temporal association between \(e_2\) and \(e_3\) may raise the priority of a shared-unit hypothesis, but it cannot establish identity of the latent unit. Conversely, a verified task rule forbidding one unit from executing two simultaneous exclusive operations can invalidate a proposed assignment. Unknown timestamps must not be treated as proof of exclusivity.
+For example, a strong temporal association between $e_2$ and $e_3$ may raise the priority of a shared-unit hypothesis, but it cannot establish identity of the latent unit. Conversely, a verified task rule forbidding one unit from executing two simultaneous exclusive operations can invalidate a proposed assignment. Unknown timestamps must not be treated as proof of exclusivity.
 
 ## 12. Evidence independence and provenance
 
-Suppose two evidence features, \(z_1\) and \(z_2\), derive from the same underlying observation. Treating them as independent can inflate support. SHUs therefore carry evidence dependency identifiers. An evaluator should either use an explicit dependence-aware model or conservatively avoid double counting. Agents should record when they derive claims from another agent's SHU; relay is not independent corroboration.
+Suppose two evidence features, $z_1$ and $z_2$, derive from the same underlying observation. Treating them as independent can inflate support. SHUs therefore carry evidence dependency identifiers. An evaluator should either use an explicit dependence-aware model or conservatively avoid double counting. Agents should record when they derive claims from another agent's SHU; relay is not independent corroboration.
 
 A useful audit graph links each conclusion to its source observations, transformations, checker versions, and parent hypotheses. This graph enables selective invalidation when a source is corrected or withdrawn.
 
 ## 13. Counterevidence and active tests
 
-The counterevidence agent asks questions designed to separate hypotheses rather than merely confirm the current leader. Given hypotheses \(h_a,h_b\), a proposed test \(q\) may be prioritized by expected discrimination:
+The counterevidence agent asks questions designed to separate hypotheses rather than merely confirm the current leader. Given hypotheses $h_a,h_b$, a proposed test $q$ may be prioritized by expected discrimination:
 
-\[
-V(q)=\mathbb E[\Delta D(h_a,h_b)\mid q]-\eta\operatorname{Cost}(q),
-\]
+$$
+V(q)=\mathbb E[\Delta D(h_a,h_b)\mid q]-\eta\mathrm{Cost}(q),
+$$
 
-where \(D\) is a declared measure of distinguishability. Expected values require either a simulator model or explicitly acknowledged approximations. In a synthetic environment, an active test may reveal a withheld event attribute or evaluate a specific relation, subject to a common evidence-query budget.
+where $D$ is a declared measure of distinguishability. Expected values require either a simulator model or explicitly acknowledged approximations. In a synthetic environment, an active test may reveal a withheld event attribute or evaluate a specific relation, subject to a common evidence-query budget.
 
 Negative results remain first-class evidence and can revise a directional field without erasing the history of why a hypothesis was explored.
 
