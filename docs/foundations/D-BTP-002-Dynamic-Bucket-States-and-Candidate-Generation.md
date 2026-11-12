@@ -176,7 +176,7 @@ This is a **coupled generation–selection–feedback** model, not merely a gene
 
 ### 8.1 Multiple directional objectives
 
-Evidence fit, explanation complexity, expected information gain, search diversity, and compute cost may conflict. The controller may retain a Pareto or diversified top-$k$ portfolio rather than collapsing every consideration into one scalar. Directional guidance must not silently weaken hard constraints.
+Evidence fit, explanation complexity, expected information gain, search diversity, and compute cost may conflict. The controller may retain a Pareto or diversified top-k portfolio rather than collapsing every consideration into one scalar. Directional guidance must not silently weaken hard constraints.
 
 ## 9. Illustrative case: blockchain actor attribution
 
