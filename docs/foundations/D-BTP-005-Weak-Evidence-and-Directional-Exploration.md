@@ -186,10 +186,7 @@ Validated results can improve the generator or priority model. The update mechan
 Where likelihood models are justified, evidence may be combined using posterior odds:
 
 $$
-\frac{P(H\mid E)}{P(\neg H\mid E)}
-=
-\frac{P(H)}{P(\neg H)}
-\cdot\frac{P(E\mid H)}{P(E\mid\neg H)}.
+\frac{P(H\mid E)}{P(\neg H\mid E)} = \frac{P(H)}{P(\neg H)} \cdot\frac{P(E\mid H)}{P(E\mid\neg H)}.
 $$
 
 This identity does not license naive multiplication of likelihood ratios for correlated observations. If $E=(e_1,e_2)$, conditional dependence must be modeled or conservatively handled. On-chain behavioral features often share a common causal origin; counting each as independent can inflate confidence dramatically.
