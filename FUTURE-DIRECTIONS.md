@@ -29,7 +29,7 @@ The first two can be useful without establishing the latter three.
 
 A finite candidate queue is not proof that no more candidates exist. A bucket may be **quiescent** because no enabled generator currently emits a candidate, **closed** only under a justified closure condition, or **budget-terminated** while work remains possible. Future work should define closure certificates for particular generator classes, explicit fairness assumptions, and monotonic versus non-monotonic candidate availability.
 
-**Approach.** Formalize the generator as \(G(B_t,\Theta_t,R_t)\), with state \(B_t\), policy \(\Theta_t\), and resources \(R_t\). Specify a hypothesis language \(\mathcal H\), a reachability relation, and a closure predicate \(C(B_t,G,\mathcal H)\). Study conditions under which the search enumerates every reachable feasible hypothesis before termination.
+**Approach.** Formalize the generator as $G(B_t,\Theta_t,R_t)$, with state $B_t$, policy $\Theta_t$, and resources $R_t$. Specify a hypothesis language $\mathcal H$, a reachability relation, and a closure predicate $C(B_t,G,\mathcal H)$. Study conditions under which the search enumerates every reachable feasible hypothesis before termination.
 
 **Evidence.** Small instances with exhaustive ground truth; machine-checked transition invariants; adversarial cases where late evidence activates previously unavailable candidates.
 
@@ -79,9 +79,9 @@ Compare solution quality at fixed computation budgets, coverage of diverse feasi
 
 Replace a single scalar priority with a directional vector, for example
 
-\[
+$$
 \mathbf d(h) = [d_{\mathrm{fit}},d_{\mathrm{novelty}},d_{\mathrm{information}},d_{\mathrm{cost}},d_{\mathrm{risk}}].
-\]
+$$
 
 Weights may depend on task and governance policy. Preserve non-dominated hypotheses and controlled exploration quotas to avoid prematurely eliminating unusual but potentially correct explanations. Study how uncertainty intervals and missing evidence affect Pareto comparisons.
 
@@ -99,11 +99,11 @@ Treat a directional field unit (DFU) as a versioned, testable hypothesis about h
 
 Weak evidence may improve prioritization even if it does not establish that a hypothesis is correct. Define separate quantities for evidential support and search utility:
 
-\[
+$$
 U_{\mathrm{search}}(e) = \mathbb E[Q(\pi_e;B)] - \mathbb E[Q(\pi_0;B)] - \lambda\,\Delta C(e),
-\]
+$$
 
-where \(Q\) is a predeclared quality measure at budget \(B\), \(\pi_e\) is an evidence-guided policy, \(\pi_0\) a baseline, and \(\Delta C\) the added cost. This is an experimental estimand, not an established law.
+where $Q$ is a predeclared quality measure at budget $B$, $\pi_e$ is an evidence-guided policy, $\pi_0$ a baseline, and $\Delta C$ the added cost. This is an experimental estimand, not an established law.
 
 ### D2. Provenance and correlated evidence
 

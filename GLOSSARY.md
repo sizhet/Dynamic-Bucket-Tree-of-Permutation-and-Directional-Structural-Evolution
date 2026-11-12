@@ -53,11 +53,11 @@ A search-state unit recording a partial structural hypothesis and the informatio
 
 A versioned snapshot of a Bucket's hypothesis decisions, structural composition, evidence, directional control references, candidate frontier and operational metadata. A useful conceptual shorthand is
 
-\[
+$$
 B_t=(H_t,S_t,E_t,P_t,M_t),
-\]
+$$
 
-where \(H\) is the hypothesis ledger, \(S\) structural state, \(E\) evidence state, \(P\) policy/directional references and \(M\) metadata. This is **illustrative notation**, not a substitute for the canonical serialization in SPEC-001.
+where $H$ is the hypothesis ledger, $S$ structural state, $E$ evidence state, $P$ policy/directional references and $M$ metadata. This is **illustrative notation**, not a substitute for the canonical serialization in SPEC-001.
 
 ### Bucket Tree
 
@@ -105,11 +105,11 @@ A proposed structural assertion or operation available for evaluation. Candidate
 
 The process of constructing new candidates from the evolving Bucket and external or learned context. Abstractly,
 
-\[
+$$
 C_t=G(B_t;\theta_G,R_t),
-\]
+$$
 
-where \(G\) is a generator, \(\theta_G\) its versioned configuration, and \(R_t\) accessible contextual resources. Generated candidates must retain identity and provenance.
+where $G$ is a generator, $\theta_G$ its versioned configuration, and $R_t$ accessible contextual resources. Generated candidates must retain identity and provenance.
 
 ### Candidate Frontier
 
@@ -377,24 +377,24 @@ A limitation imposed by representation, generators, data access, computation, ev
 
 | Symbol | Intended meaning | Qualification |
 |---|---|---|
-| \(B_t\) | Bucket state at step \(t\) | Conceptual state snapshot |
-| \(H_t\) | Hypothesis decision ledger | Not necessarily all possible hypotheses |
-| \(S_t\) | Structural composition state | May be partial or latent |
-| \(E_t\) | Evidence state | Includes dependencies and provenance where needed |
-| \(P_t\) | Policy / directional state | Can reference separately versioned field objects |
-| \(M_t\) | Metadata, lineage and resource accounting | Contract details in SPEC-001 |
-| \(C_t\) | Candidates generated at step \(t\) | Not necessarily exhaustive |
-| \(G\) | Candidate generation operator | May be policy-conditioned |
-| \(\theta_G\) | Generator configuration or learned parameters | Must be versioned for reproducibility |
-| \(R_t\) | Accessible context/resources | Scope and permissions matter |
-| \(D_t\) | Directional field at step \(t\) | May be vector-valued and uncertain |
-| \(T\) | Authorized state transition | Subject to invariants |
-| \(s_k(c)\) | Candidate score on objective \(k\) | Units and normalization must be declared |
-| \(w_k\) | Objective weight | Not intrinsically comparable across contexts |
-| \(\mathcal F_t\) | Search frontier | Exact notation may vary by document |
-| \(\Pi_t\) | Portfolio or policy, context-dependent | Define locally when used |
+| $B_t$ | Bucket state at step $t$ | Conceptual state snapshot |
+| $H_t$ | Hypothesis decision ledger | Not necessarily all possible hypotheses |
+| $S_t$ | Structural composition state | May be partial or latent |
+| $E_t$ | Evidence state | Includes dependencies and provenance where needed |
+| $P_t$ | Policy / directional state | Can reference separately versioned field objects |
+| $M_t$ | Metadata, lineage and resource accounting | Contract details in SPEC-001 |
+| $C_t$ | Candidates generated at step $t$ | Not necessarily exhaustive |
+| $G$ | Candidate generation operator | May be policy-conditioned |
+| $\theta_G$ | Generator configuration or learned parameters | Must be versioned for reproducibility |
+| $R_t$ | Accessible context/resources | Scope and permissions matter |
+| $D_t$ | Directional field at step $t$ | May be vector-valued and uncertain |
+| $T$ | Authorized state transition | Subject to invariants |
+| $s_k(c)$ | Candidate score on objective $k$ | Units and normalization must be declared |
+| $w_k$ | Objective weight | Not intrinsically comparable across contexts |
+| $\mathcal F_t$ | Search frontier | Exact notation may vary by document |
+| $\Pi_t$ | Portfolio or policy, context-dependent | Define locally when used |
 
-A weighted aggregation such as \(S(c)=\sum_k w_k s_k(c)\) is **one possible policy**, not the definition of directional intelligence. In particular, it does not replace hard constraint checking or uncertainty reporting.
+A weighted aggregation such as $S(c)=\sum_k w_k s_k(c)$ is **one possible policy**, not the definition of directional intelligence. In particular, it does not replace hard constraint checking or uncertainty reporting.
 
 ## 10. Commonly confused distinctions
 

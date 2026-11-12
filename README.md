@@ -30,9 +30,9 @@ D-BTP separates **what is feasible**, **what is plausible**, and **what is worth
 
 A dynamic bucket at step *t* may be abstracted as:
 
-\[
+$$
 B_t = (H_t, S_t, E_t, D_t, M_t)
-\]
+$$
 
 where:
 
@@ -44,9 +44,9 @@ where:
 
 Candidates are generated from the current state rather than assumed to be a complete immutable input:
 
-\[
+$$
 C_t = G(B_t;\,\theta_G,\mathcal{R}_t)
-\]
+$$
 
 A candidate is assessed against hard constraints and, when admissible, may be ranked using soft evidence and directional objectives. The system then branches, propagates constraints, acquires further evidence when justified, and updates its state. This is a **coupled loop**:
 
