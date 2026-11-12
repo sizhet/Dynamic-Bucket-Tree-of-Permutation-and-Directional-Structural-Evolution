@@ -53,13 +53,6 @@ $$
 \ \land\ K_t(H^*,S_t)=\mathrm{true}.
 $$
 
-
-$$
-\mathrm{Feasible}(\mathcal B_t)\iff
-\exists H^*\supseteq A(H_t):\ H^*\cap X(H_t)=\varnothing
-\ \land\ K_t(H^*,S_t)=\mathrm{true}.
-$$
-
 This definition presupposes a specified domain of possible completions and a stable meaning for each claim. In practice, a plugin may be unable to decide feasibility. The engine must distinguish `FEASIBLE`, `INFEASIBLE`, and `UNKNOWN` rather than treating an unproved feasible completion as a proven one.
 
 ## 4. Three classes of constraints
