@@ -192,10 +192,6 @@ $$
 \mathrm{Sim}(M)=\frac{\mathrm{matched\ structural\ mass}(M)}{\mathrm{reference\ mass}(A,B)}-\lambda\,\mathrm{soft\ violations}(M),
 $$
 
-$$
-\mathrm{Sim}(M)=\frac{\mathrm{matched\_structural\_mass}(M)}{\mathrm{reference\_mass}(A,B)}-\lambda\mathrm{soft\_violations}(M),
-$$
-
 where the denominator is explicitly chosen (union mass, maximum mass, task-weighted mass, etc.). This formula is illustrative, not canonical. Asymmetric tasks may require directional coverage scores $\mathrm{Coverage}_{A\to B}$ and $\mathrm{Coverage}_{B\to A}$ rather than a symmetric metric.
 
 When defining a distance $d(A,B)$, do not call it a mathematical metric without checking nonnegativity, identity of indiscernibles, symmetry, and triangle inequality. Approximate graph edit distance, maximum common subgraph, and attributed graph matching have different semantics and complexity properties.
