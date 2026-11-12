@@ -182,7 +182,7 @@ Evidence fit, explanation complexity, expected information gain, search diversit
 
 Consider a synthetic ledger with observable transactions $T_1,T_2,\ldots$ and latent control actors $A_1,A_2,\ldots$. A candidate relation $(A_i,T_j)$ means *actor $A_i$ may control or be responsible for behavior $T_j$ under a stated attribution model*. Unlike ordinary one-to-one graph matching, one actor may be associated with many transactions; a transaction may also involve multiple distinct roles.
 
-Suppose accepting $(A_1,T_1)$ creates a provisional behavioral cluster. The cluster may suggest a new candidate $(A_1,T_3)$ that was not present in an initial pair list. Rejecting $(A_1,T_3)$ may prompt a different cluster interpretation and a candidate involving $A_2$. The search state, candidate generator, and evidence interpretation evolve together.
+Suppose accepting $(A_1,T_1)$ creates a provisional behavioral cluster. The cluster may suggest a new candidate $(A_1,T_3)$ that was not present in an initial pair list. Rejecting $(A_1,T_3)$ may prompt a different cluster interpretation and a candidate involving ${A_2}$. The search state, candidate generator, and evidence interpretation evolve together.
 
 The system must distinguish *transaction-level structural similarity*, *common control*, and *real-world identity*. Neither shared patterns nor a high-scoring leaf establish personal identity. For validation, use synthetic or properly authorized datasets with known ground truth, and report uncertainty and alternative explanations.
 
