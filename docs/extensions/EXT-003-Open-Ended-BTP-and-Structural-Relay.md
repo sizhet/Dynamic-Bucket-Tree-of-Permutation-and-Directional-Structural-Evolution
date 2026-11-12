@@ -42,9 +42,9 @@ The intended object of study is **controlled open-ended structural evolution**: 
 
 Let a search configuration at time `t` be
 
-\[
+$$
 \mathcal{X}_t=(\mathcal{B}_t,\mathcal{L}_t,\mathcal{O}_t,\mathcal{D}_t,\mathcal{R}_t,\mathcal{K}_t),
-\]
+$$
 
 where:
 
@@ -57,9 +57,9 @@ where:
 
 An ordinary D-BTP transition updates the Bucket portfolio under a mostly fixed `L_t` and `O_t`. A proposed evolutionary transition may instead modify the language, operators, directional policies, or reusable knowledge:
 
-\[
+$$
 \mathcal{X}_{t+1}=\mathsf{GovernedUpdate}(\mathcal{X}_t,\Delta_t,\mathsf{Validation}_t).
-\]
+$$
 
 The update is **provisional** until relevant conformance, safety, and task-performance gates have been passed. A rejected proposal remains an auditable candidate, not a silently adopted capability.
 
@@ -115,10 +115,10 @@ Directional fields may guide both ordinary hypothesis search and the invention o
 
 A conceptual utility is:
 
-\[
+$$
 U(e\mid x)=w_1\,\widehat{\Delta Q}(e,x)+w_2\,\widehat{I}(e,x)
 +w_3\,\widehat{T}(e,x)-w_4\,\widehat{C}(e,x)-w_5\,\widehat{R}(e,x),
-\]
+$$
 
 where `e` is a proposed extension, `x` the current context, and the terms estimate quality gain, information gain, transfer potential, verification cost, and risk. These estimates are **search heuristics**, not validity proofs. Weight selection, calibration, and sensitivity should be logged and evaluated.
 

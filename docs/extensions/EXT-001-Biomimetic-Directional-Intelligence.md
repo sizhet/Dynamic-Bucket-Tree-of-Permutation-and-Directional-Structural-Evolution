@@ -43,27 +43,27 @@ Only the first two are within the intended scope. Mechanistic identity is neithe
 
 ## 3. The D-BTP Search Unit
 
-Let a dynamic Bucket at time or iteration \(t\) be
+Let a dynamic Bucket at time or iteration $t$ be
 
-\[
+$$
 \mathcal{B}_t = (H_t,S_t,E_t,P_t,M_t),
-\]
+$$
 
 where:
 
-- \(H_t\) is the hypothesis ledger, including accepted, rejected, deferred, and unresolved propositions;
-- \(S_t\) is the composed structural state and constraint context;
-- \(E_t\) is the evidence set with provenance, dependencies, and uncertainty;
-- \(P_t\) is the directional search and resource-allocation state;
-- \(M_t\) is metadata including versions, budgets, audit history, and termination status.
+- $H_t$ is the hypothesis ledger, including accepted, rejected, deferred, and unresolved propositions;
+- $S_t$ is the composed structural state and constraint context;
+- $E_t$ is the evidence set with provenance, dependencies, and uncertainty;
+- $P_t$ is the directional search and resource-allocation state;
+- $M_t$ is metadata including versions, budgets, audit history, and termination status.
 
 Candidate hypotheses are dynamically generated:
 
-\[
+$$
 C_t = G(\mathcal{B}_t,\Phi_t,\mathcal{R}_t),
-\]
+$$
 
-where \(\Phi_t\) denotes directional fields and \(\mathcal{R}_t\) represents permitted tools, plugins, and resources. A transition accepts, rejects, defers, or probes a candidate while preserving hard constraints and provenance.
+where $\Phi_t$ denotes directional fields and $\mathcal{R}_t$ represents permitted tools, plugins, and resources. A transition accepts, rejects, defers, or probes a candidate while preserving hard constraints and provenance.
 
 This architecture provides the substrate for biomimetic analogies without requiring a literal mapping to biological structures.
 
@@ -95,36 +95,36 @@ A central D-BTP proposition is that generation and selection are not merely two 
 
 A conceptual loop is:
 
-\[
+$$
 \begin{aligned}
 C_t &= G(\mathcal{B}_t,\Phi_t),\\
 A_t &= \Pi(C_t,\mathcal{B}_t,\Phi_t,\text{budget}_t),\\
 (\mathcal{B}_{t+1},Y_t) &= T(\mathcal{B}_t,A_t),\\
 \Phi_{t+1} &= U(\Phi_t,\mathcal{B}_{t+1},Y_t).
 \end{aligned}
-\]
+$$
 
-Here \(A_t\) is the selected search action, \(Y_t\) is observed feedback, \(T\) is a constraint-aware state transition, and \(U\) is an update rule. The feedback must be qualified by provenance and validation status before it influences long-lived policy parameters.
+Here $A_t$ is the selected search action, $Y_t$ is observed feedback, $T$ is a constraint-aware state transition, and $U$ is an update rule. The feedback must be qualified by provenance and validation status before it influences long-lived policy parameters.
 
-The equation is a design abstraction, not a guarantee that \(U\) improves performance.
+The equation is a design abstraction, not a guarantee that $U$ improves performance.
 
 ## 6. Directional Fields as Operational Constructs
 
 A useful field is multi-component:
 
-\[
+$$
 \Phi_t = (\phi_{\mathrm{goal}},\phi_{\mathrm{information}},
 \phi_{\mathrm{novelty}},\phi_{\mathrm{risk}},\phi_{\mathrm{cost}},
 \phi_{\mathrm{diversity}})_t.
-\]
+$$
 
 Each component may score candidate generation opportunities, proposed actions, or entire Buckets. Scores should carry scale, uncertainty, version, applicability, and evidence lineage. A weighted scalar score is one possible selection method:
 
-\[
+$$
 q_t(a)=\sum_i w_{i,t}\,\widehat{\phi}_{i,t}(a),
-\]
+$$
 
-but Pareto ranking, lexicographic policy, or constrained portfolio selection may be preferable when objectives conflict. The normalization \(\widehat{\phi}\) and weights \(w\) must be specified; otherwise comparisons across agents or experiments may be invalid.
+but Pareto ranking, lexicographic policy, or constrained portfolio selection may be preferable when objectives conflict. The normalization $\widehat{\phi}$ and weights $w$ must be specified; otherwise comparisons across agents or experiments may be invalid.
 
 **Non-negotiable separation:** a low directional score does not prove infeasibility. Only sound hard-constraint reasoning can justify a logically irreversible rejection.
 
@@ -146,13 +146,13 @@ Multiple correlated observations must not be treated as independent confirmation
 
 ## 8. Active Perception and Information Gain
 
-Suppose a portfolio contains hypotheses \(\mathcal{H}=\{h_1,\dots,h_k\}\). A proposed observation action \(a\) can be ranked by expected reduction in uncertainty:
+Suppose a portfolio contains hypotheses $\mathcal{H}=\{h_1,\dots,h_k\}$. A proposed observation action $a$ can be ranked by expected reduction in uncertainty:
 
-\[
-\operatorname{EIG}(a)=H(\mathcal{H}\mid E_t)-
+$$
+\mathrm{EIG}(a)=H(\mathcal{H}\mid E_t)-
 \mathbb{E}_{y\sim p(y\mid a,E_t)}
 \big[H(\mathcal{H}\mid E_t,y)\big].
-\]
+$$
 
 This expression is meaningful only when the probability model and its calibration are defensible. In settings without trustworthy probabilities, D-BTP can use qualitative disagreement reduction, bounded uncertainty intervals, or expected constraint elimination as substitutes. Information gain is an *exploration heuristic* and should not be confused with proof of a candidate hypothesis.
 
@@ -160,9 +160,9 @@ This expression is meaningful only when the probability model and its calibratio
 
 A prediction residual can signal a gap in the current structural representation:
 
-\[
+$$
 r_t = d\big(y_t,\widehat{y}_t(\mathcal{B}_t)\big).
-\]
+$$
 
 Large residuals may motivate new candidate relations, alternative causal explanations, or revised generation operators. However, surprise can also arise from sensor noise, distribution shift, or model misspecification. A responsible system should test simpler explanations before introducing more complex structures.
 
@@ -178,7 +178,7 @@ Greedy search may concentrate resources on the first attractive explanation. A b
 - verification of uncertain constraints;
 - operator or directional-policy experiments.
 
-A portfolio \(\mathcal{P}_t\) should preserve structurally non-equivalent hypotheses, with explicit limits on duplicate states and redundant evidence. Diversity measures must be defined over relevant structural differences, not superficial text variations.
+A portfolio $\mathcal{P}_t$ should preserve structurally non-equivalent hypotheses, with explicit limits on duplicate states and redundant evidence. Diversity measures must be defined over relevant structural differences, not superficial text variations.
 
 No universal allocation ratio is proposed. Optimal allocation is likely task- and budget-dependent.
 

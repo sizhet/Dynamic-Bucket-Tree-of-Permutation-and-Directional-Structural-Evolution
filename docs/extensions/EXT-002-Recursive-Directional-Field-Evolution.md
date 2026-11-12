@@ -68,48 +68,48 @@ L0 and L1 are not, by themselves, RSI. L2 may constitute meta-learning if it gen
 
 ## 4. Canonical Model
 
-Let a search episode at time \(t\) contain:
+Let a search episode at time $t$ contain:
 
-\[
+$$
 \mathcal{B}_t=(H_t,S_t,E_t,P_t,M_t),
-\]
+$$
 
-where \(H_t\) is the hypothesis ledger, \(S_t\) structural state, \(E_t\) evidence and provenance, \(P_t\) directional/search policy state, and \(M_t\) metadata, versions, and budgets.
+where $H_t$ is the hypothesis ledger, $S_t$ structural state, $E_t$ evidence and provenance, $P_t$ directional/search policy state, and $M_t$ metadata, versions, and budgets.
 
 A directional field is represented as a versioned unit:
 
-\[
+$$
 \Phi^v=(\mathcal{O},\mathcal{F},\mathcal{W},\mathcal{U},\mathcal{G},\mathcal{Q},\mathcal{R},\mathcal{V}),
-\]
+$$
 
-with objectives \(\mathcal{O}\), features \(\mathcal{F}\), weighting or aggregation \(\mathcal{W}\), uncertainty representation \(\mathcal{U}\), generation guidance \(\mathcal{G}\), selection/resource policy \(\mathcal{Q}\), update rules \(\mathcal{R}\), and provenance/validation metadata \(\mathcal{V}\).
+with objectives $\mathcal{O}$, features $\mathcal{F}$, weighting or aggregation $\mathcal{W}$, uncertainty representation $\mathcal{U}$, generation guidance $\mathcal{G}$, selection/resource policy $\mathcal{Q}$, update rules $\mathcal{R}$, and provenance/validation metadata $\mathcal{V}$.
 
 A coupled D-BTP step is:
 
-\[
+$$
 C_t=G(\mathcal{B}_t,\Phi^v,\mathcal{K}_t),\qquad
-c_t=\operatorname{Select}(C_t,\mathcal{B}_t,\Phi^v),
-\]
+c_t=\mathrm{Select}(C_t,\mathcal{B}_t,\Phi^v),
+$$
 
-\[
-\mathcal{B}_{t+1}=T(\mathcal{B}_t,c_t,\operatorname{Check}(c_t)),
-\]
+$$
+\mathcal{B}_{t+1}=T(\mathcal{B}_t,c_t,\mathrm{Check}(c_t)),
+$$
 
-where \(\mathcal{K}_t\) denotes constraints and available plugin capabilities. Candidate generation and selection may be mutually conditioned; these equations express an interface boundary, not a mandatory two-pass implementation.
+where $\mathcal{K}_t$ denotes constraints and available plugin capabilities. Candidate generation and selection may be mutually conditioned; these equations express an interface boundary, not a mandatory two-pass implementation.
 
 Across episodes, a proposed field update is:
 
-\[
+$$
 \widehat{\Phi}^{v+1}=M(\Phi^v,\mathcal{D}_{\leq t},\mathcal{R}_{\leq t}),
-\]
+$$
 
-where \(M\) is a revision operator, \(\mathcal{D}\) contains appropriately partitioned experience, and \(\mathcal{R}\) contains residuals and validation feedback. **Proposal is not promotion:** deployment requires a separate gate.
+where $M$ is a revision operator, $\mathcal{D}$ contains appropriately partitioned experience, and $\mathcal{R}$ contains residuals and validation feedback. **Proposal is not promotion:** deployment requires a separate gate.
 
 ## 5. Directional Fields Are Structured Hypotheses
 
 A field revision should be treated as a falsifiable hypothesis about search control:
 
-> Under declared task conditions and budgets, field version \(\Phi'\) will improve a specified evaluation objective relative to \(\Phi\), without violating protected invariants or unacceptable regressions.
+> Under declared task conditions and budgets, field version $\Phi'$ will improve a specified evaluation objective relative to $\Phi$, without violating protected invariants or unacceptable regressions.
 
 The hypothesis must identify its domain of applicability. A field that improves sparse graph matching may harm dense graph matching. An evidence-acquisition strategy useful in one domain may be costly or misleading in another. Consequently, field units should carry **applicability predicates**, not universal superiority claims.
 
@@ -187,8 +187,8 @@ Field proposals may arise from several sources:
 
 A practical architecture uses two related but separately governed frontiers:
 
-- **Hypothesis frontier \(\mathcal{F}_H\):** structural interpretations of the current task.
-- **Field frontier \(\mathcal{F}_\Phi\):** candidate modifications to the policies governing structural exploration.
+- **Hypothesis frontier $\mathcal{F}_H$:** structural interpretations of the current task.
+- **Field frontier $\mathcal{F}_\Phi$:** candidate modifications to the policies governing structural exploration.
 
 A field candidate can itself be a Bucket-like hypothesis with a proposal ledger, compatibility constraints, test evidence, and a status such as *proposed*, *sandboxed*, *rejected*, *validated*, *promoted*, or *rolled back*.
 
@@ -198,7 +198,7 @@ The field frontier must not automatically inherit the current search field's bia
 
 The architecture must permit beneficial feedback without making evidence self-confirming.
 
-A candidate field \(\Phi'\) may alter which task hypotheses are explored. The resulting data are therefore **policy-selected observations**, not necessarily an unbiased sample of the problem space. Evaluating \(\Phi'\) solely on those observations risks selection bias.
+A candidate field $\Phi'$ may alter which task hypotheses are explored. The resulting data are therefore **policy-selected observations**, not necessarily an unbiased sample of the problem space. Evaluating $\Phi'$ solely on those observations risks selection bias.
 
 Recommended safeguards include:
 
@@ -215,9 +215,9 @@ These controls do not remove all bias, but they make improvement claims more fal
 
 A single scalar score may suppress promising minority hypotheses. Instead, D-BTP can maintain a portfolio:
 
-\[
+$$
 \mathbf{s}_{\Phi}(c)=(s_{\mathrm{feasibility}},s_{\mathrm{promise}},s_{\mathrm{information}},s_{\mathrm{diversity}},s_{\mathrm{cost}},s_{\mathrm{risk}}).
-\]
+$$
 
 The feasibility component must not replace hard constraint validation. The other components may be uncertain or incomparable. Selection can use Pareto dominance, lexicographic safeguards, constrained optimization, or budgeted exploration quotas.
 
@@ -233,25 +233,25 @@ A directional field should also be capable of saying **“insufficient evidence 
 
 ## 12. A Field-Improvement Objective
 
-For a task distribution \(\mathcal{T}\), define an illustrative performance functional:
+For a task distribution $\mathcal{T}$, define an illustrative performance functional:
 
-\[
+$$
 J(\Phi;\mathcal{T})=
 \mathbb{E}_{\tau\sim\mathcal{T}}
 \left[Q_{\mathrm{validated}}(\tau,\Phi)
 -\lambda C(\tau,\Phi)
 -\mu R(\tau,\Phi)\right],
-\]
+$$
 
-where \(Q_{\mathrm{validated}}\) measures validated structural outcomes, \(C\) is computational and evidence-acquisition cost, and \(R\) is a defined risk or calibration penalty. These terms require domain-specific operational definitions and normalization.
+where $Q_{\mathrm{validated}}$ measures validated structural outcomes, $C$ is computational and evidence-acquisition cost, and $R$ is a defined risk or calibration penalty. These terms require domain-specific operational definitions and normalization.
 
 A field revision is a candidate improvement if:
 
-\[
+$$
 \Delta J=J(\Phi';\mathcal{T}_{\mathrm{heldout}})-J(\Phi;\mathcal{T}_{\mathrm{heldout}})>\delta,
-\]
+$$
 
-with a predeclared practical threshold \(\delta\), appropriate uncertainty estimates, and no violations of protected constraints. A positive point estimate alone is insufficient.
+with a predeclared practical threshold $\delta$, appropriate uncertainty estimates, and no violations of protected constraints. A positive point estimate alone is insufficient.
 
 An important alternative is **regret under distribution shift**: a field can perform well on average while failing catastrophically on a minority task family. Promotion criteria should therefore include worst-group or risk-sensitive measures where relevant.
 
@@ -320,13 +320,13 @@ This pseudocode is intentionally conservative. It leaves evaluator independence,
 
 ## 15. Recursive Improvement of the Revision Operator
 
-Suppose the field revision operator is itself parameterized by \(\Psi\):
+Suppose the field revision operator is itself parameterized by $\Psi$:
 
-\[
+$$
 \Phi^{v+1}=M_{\Psi}(\Phi^v,\mathcal{D},\mathcal{R}).
-\]
+$$
 
-A proposed meta-revision \(\Psi'\) may improve how useful field proposals are generated. A credible L3 claim requires demonstrating that \(M_{\Psi'}\), under comparable budgets and on unseen tasks, yields better validated revisions than \(M_{\Psi}\).
+A proposed meta-revision $\Psi'$ may improve how useful field proposals are generated. A credible L3 claim requires demonstrating that $M_{\Psi'}$, under comparable budgets and on unseen tasks, yields better validated revisions than $M_{\Psi}$.
 
 This introduces two levels of measurement:
 
@@ -351,7 +351,7 @@ Collective learning may accumulate reusable field components and negative result
 
 ## 17. Field Composition, Specialization, and Conditional Dispatch
 
-One field need not dominate all others. A family of fields \(\{\Phi_1,\ldots,\Phi_k\}\) may be governed by a context-dependent dispatcher \(D(x)\), where \(x\) is a task descriptor. This permits specialization without forcing a single universal weighting scheme.
+One field need not dominate all others. A family of fields $\{\Phi_1,\ldots,\Phi_k\}$ may be governed by a context-dependent dispatcher $D(x)$, where $x$ is a task descriptor. This permits specialization without forcing a single universal weighting scheme.
 
 Potential composition modes include:
 
