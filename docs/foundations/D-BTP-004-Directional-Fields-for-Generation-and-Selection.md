@@ -370,7 +370,7 @@ Useful measures include:
 
 - best feasible objective value versus elapsed compute;
 - candidate precision, recall, and discovery latency on synthetic ground truth;
-- diversity and calibration of the top-$K$ hypothesis portfolio;
+- diversity and calibration of the top-K hypothesis portfolio;
 - percentage of search effort spent on duplicate or infeasible branches;
 - number of certified closed states versus budget-limited unresolved states;
 - cross-domain transfer and sensitivity to field miscalibration.
@@ -388,7 +388,7 @@ The **quality of a field** is therefore an empirical question, not an intrinsic 
 | Incomplete candidate coverage | False declaration of a terminal leaf | Explicit coverage certificates and quiescence state |
 | Changing policy during replay | Non-reproducible search history | Versioned field and seed logs |
 | Overaggressive state merging | Loss of distinct future possibilities | Future-relevant state signatures |
-| Single-best-hypothesis collapse | Spurious certainty | Top-$K$ and perspective portfolios |
+| Single-best-hypothesis collapse | Spurious certainty | Top-K and perspective portfolios |
 | Latent actor treated as known identity | Invalid attribution claim | Separate structural, control, and identity assertions |
 
 ## 17. Testable hypotheses

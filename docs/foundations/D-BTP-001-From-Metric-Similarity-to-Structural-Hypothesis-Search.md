@@ -178,7 +178,7 @@ $$
 
 Hard-constraint violations instead make $H$ infeasible. Weights, calibration, and the treatment of correlated evidence are domain-specific; the expression is illustrative rather than canonical.
 
-A dynamic BTP implementation should be able to return a **diverse top-$K$ portfolio** of feasible hypotheses, together with scores, provenance, unresolved alternatives, and resource-limit flags. High scoring is not the same as identifiable truth. Two incompatible hypotheses can fit the same observations equally well.
+A dynamic BTP implementation should be able to return a **diverse top-K portfolio** of feasible hypotheses, together with scores, provenance, unresolved alternatives, and resource-limit flags. High scoring is not the same as identifiable truth. Two incompatible hypotheses can fit the same observations equally well.
 
 ## 8. Algorithmic Contracts and Invariants
 
@@ -231,7 +231,7 @@ These are architectural connections and proposed research interfaces, not eviden
 
 **H4 — Weak-evidence utility.** Calibrated weak evidence improves search efficiency or discovery without increasing false-positive attribution beyond an agreed threshold.
 
-**H5 — Portfolio robustness.** Diverse top-$K$ hypotheses and explicit abstention yield better uncertainty representation than a single best-leaf report.
+**H5 — Portfolio robustness.** Diverse top-K hypotheses and explicit abstention yield better uncertainty representation than a single best-leaf report.
 
 Negative or mixed results are informative. In particular, highly misleading directional fields may perform worse than unguided exploration.
 
