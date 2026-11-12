@@ -182,9 +182,9 @@ The digest placeholder MUST be replaced by an actual computed value in conforman
 
 Let the evidence dependency graph be
 
-\[
+$$
 \mathcal{G}_E=(V_E, E_{\mathrm{derived}}, E_{\mathrm{shared}}, E_{\mathrm{contradicts}}).
-\]
+$$
 
 Edges have different meanings:
 
@@ -503,9 +503,9 @@ A system MUST NOT label ordinary Bucket branching as RSI. Claims of Level C or D
 
 A practical improvement vector is
 
-\[
+$$
 \Delta \mathbf{J} = (\Delta Q,\,-\Delta C,\,\Delta D,\,\Delta R,\,-\Delta V),
-\]
+$$
 
 where `Q` is task-quality, `C` is resource cost, `D` is hypothesis diversity or coverage, `R` is robustness/generalization, and `V` is safety/constraint violations. This vector is intentionally not collapsed into a universal scalar. Each metric MUST have a declared measurement protocol; directional preferences MAY choose tradeoffs but MUST NOT mask violations of mandatory constraints.
 
@@ -536,31 +536,31 @@ Transfer requires an explicit mapping between source and target representations.
 
 Let the learning state at iteration `t` be
 
-\[
+$$
 \mathcal{L}_t=(\mathcal{E}_t,\mathcal{H}_t,\mathcal{A}_t,\Pi_t,\mathcal{V}_t),
-\]
+$$
 
 where `E` is the evidence graph, `H` the hypothesis portfolio, `A` the reusable artifact registry, `Π` the active policy/version set, and `V` the validation and governance history.
 
 A relay event `r_t` produces an *admission decision*, not immediate belief:
 
-\[
-(\mathcal{L}_t,r_t)\xrightarrow{\operatorname{admit}}(\mathcal{L}'_t,d_t),
+$$
+(\mathcal{L}_t,r_t)\xrightarrow{\mathrm{admit}}(\mathcal{L}'_t,d_t),
 \quad d_t\in\{\mathrm{accept},\mathrm{restrict},\mathrm{quarantine},\mathrm{reject},\mathrm{request}\}.
-\]
+$$
 
 An authorized learning update has two distinct steps:
 
-\[
- a_{t+1}^{\mathrm{proposal}}=\operatorname{distill}(\mathcal{E}_t,\mathcal{H}_t,\mathcal{V}_t),
-\]
+$$
+ a_{t+1}^{\mathrm{proposal}}=\mathrm{distill}(\mathcal{E}_t,\mathcal{H}_t,\mathcal{V}_t),
+$$
 
-\[
+$$
  \Pi_{t+1}=\begin{cases}
- \operatorname{promote}(\Pi_t,a_{t+1}),&\text{if evaluation and governance gates pass},\\
+ \mathrm{promote}(\Pi_t,a_{t+1}),&\text{if evaluation and governance gates pass},\\
  \Pi_t,&\text{otherwise}.
  \end{cases}
-\]
+$$
 
 This formulation deliberately leaves the distillation and evaluation algorithms open to domain-specific implementations. The governance condition is an operational requirement, not a proof that any proposed update improves performance.
 

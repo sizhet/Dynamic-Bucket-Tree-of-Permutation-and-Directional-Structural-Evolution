@@ -27,9 +27,9 @@ It does not prescribe a particular graph model, probability calculus, scheduler,
 
 A dynamic Bucket at logical step *t* is represented by
 
-\[
+$$
 B_t = (I_t, H_t, S_t, E_t, P_t, M_t, V_t),
-\]
+$$
 
 where:
 
@@ -45,9 +45,9 @@ The decomposition is logical. Physical storage MAY normalize or distribute these
 
 A transition is a partial function
 
-\[
+$$
 T(B_t,a_t,r_t) \rightarrow (B_{t+1},\Delta_t)
-\]
+$$
 
 where *a* is an authorized action, *r* is the rule/plugin context, and *Δ* is a durable transition record. An invalid action MUST yield an explicit rejection or error; it MUST NOT silently corrupt the Bucket.
 
@@ -176,9 +176,9 @@ Directional preferences MUST remain separate from feasibility judgments. A low-p
 
 The frontier MUST track generation requests or cursors, pending proposals, visited-state policy, and the scope of any exhaustion claim. Candidate generation is modeled as
 
-\[
+$$
 C_t = G(B_t;\theta_G,R_t),
-\]
+$$
 
 where generator configuration and rule context are versioned. A generator MAY propose candidates absent from the initial state. It MUST identify the source revision and generation policy that produced each proposal.
 

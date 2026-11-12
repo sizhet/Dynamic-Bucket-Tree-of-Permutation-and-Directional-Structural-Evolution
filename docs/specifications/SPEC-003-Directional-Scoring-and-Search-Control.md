@@ -148,39 +148,39 @@ The controller MUST record decisions affecting search reachability, priority, re
 
 ## 4. Mathematical Semantics
 
-Let a Bucket state be \(B_t\), the current directional field be \(F_t\), and the active resource state be \(R_t\). A state-dependent generator proposes:
+Let a Bucket state be $B_t$, the current directional field be $F_t$, and the active resource state be $R_t$. A state-dependent generator proposes:
 
-\[
+$$
 C_t = G(B_t,F_t,R_t;\theta_G).
-\]
+$$
 
-A constraint plugin evaluates \(K(B_t,c)\in\{\mathrm{PASS},\mathrm{FAIL},\mathrm{UNKNOWN},\mathrm{ERROR}\}\). Only a sound, applicable `FAIL` finding can justify a hard-feasibility prune.
+A constraint plugin evaluates $K(B_t,c)\in\{\mathrm{PASS},\mathrm{FAIL},\mathrm{UNKNOWN},\mathrm{ERROR}\}$. Only a sound, applicable `FAIL` finding can justify a hard-feasibility prune.
 
-For candidate \(c\), let \(m_i(c,B_t)\) denote a measure and \(N_i\) its declared normalization. The objective vector is
+For candidate $c$, let $m_i(c,B_t)$ denote a measure and $N_i$ its declared normalization. The objective vector is
 
-\[
+$$
 \mathbf{s}(c\mid B_t,F_t)=\big(N_1(m_1),\ldots,N_k(m_k)\big).
-\]
+$$
 
-A field-defined aggregation \(A_{F_t}\) yields a priority value:
+A field-defined aggregation $A_{F_t}$ yields a priority value:
 
-\[
+$$
 q(c\mid B_t,F_t)=A_{F_t}\big(\mathbf{s}(c\mid B_t,F_t)\big).
-\]
+$$
 
 The controller selects a work portfolio, not necessarily one winner:
 
-\[
+$$
 P_t=\Pi(\mathcal{W}_t,\{q(w)\},D_t,R_t,F_t),
-\]
+$$
 
-where \(\mathcal{W}_t\) is the frontier and \(D_t\) represents diversity or coverage constraints. Feedback \(Y_t\) may induce a *proposed* field update:
+where $\mathcal{W}_t$ is the frontier and $D_t$ represents diversity or coverage constraints. Feedback $Y_t$ may induce a *proposed* field update:
 
-\[
+$$
 \widehat F_{t+1}=U(F_t,Y_t,\mathcal H_t).
-\]
+$$
 
-The field actually deployed is \(F_{t+1}=\widehat F_{t+1}\) only after policy validation and approval; otherwise \(F_{t+1}=F_t\). These equations describe a family of algorithms, not a claim that every instantiation converges.
+The field actually deployed is $F_{t+1}=\widehat F_{t+1}$ only after policy validation and approval; otherwise $F_{t+1}=F_t$. These equations describe a family of algorithms, not a claim that every instantiation converges.
 
 ## 5. Objective and Measure Contracts
 

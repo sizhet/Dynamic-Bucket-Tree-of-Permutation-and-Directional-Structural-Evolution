@@ -210,16 +210,16 @@ suggested_actions: [string]
 
 ### 7.1 Three-valued feasibility
 
-Let \(F(B,c)\in\{\mathsf{valid},\mathsf{invalid},\mathsf{unknown}\}\) denote feasibility of adding candidate \(c\) to bucket \(B\). For hard constraints \(h_i\), define:
+Let $F(B,c)\in\{\mathsf{valid},\mathsf{invalid},\mathsf{unknown}\}$ denote feasibility of adding candidate $c$ to bucket $B$. For hard constraints $h_i$, define:
 
-\[
+$$
 F(B,c)=
 \begin{cases}
 \mathsf{invalid}, & \exists i:\ h_i(B\oplus c)=\mathsf{false}\text{ with valid premises},\\
 \mathsf{valid}, & \forall i:\ h_i(B\oplus c)=\mathsf{true}\text{ and checks complete},\\
 \mathsf{unknown}, & \text{otherwise}.
 \end{cases}
-\]
+$$
 
 This definition does not claim that every relevant domain constraint is known. `valid` means valid under the declared, completed checks, not globally true in an unrestricted world model.
 
@@ -241,9 +241,9 @@ Policy prohibitions may block an action even when the structural hypothesis is f
 
 Constraint plugins MUST declare whether they are independent, ordered, or jointly evaluated. Hard feasibility is the conjunction of applicable hard predicates, subject to premise validity:
 
-\[
-\operatorname{Feasible}(B\oplus c) = \bigwedge_{i\in H_{\mathrm{applicable}}} h_i(B\oplus c).
-\]
+$$
+\mathrm{Feasible}(B\oplus c) = \bigwedge_{i\in H_{\mathrm{applicable}}} h_i(B\oplus c).
+$$
 
 A false predicate establishes infeasibility only when its scope and premise requirements hold. Missing checks yield `unknown`, not `pass`. Soft signals SHOULD be combined by a separate scoring contract with declared normalization, dependence handling, and uncertainty.
 
