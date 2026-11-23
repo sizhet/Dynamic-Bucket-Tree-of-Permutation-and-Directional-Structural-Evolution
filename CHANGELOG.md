@@ -96,7 +96,7 @@ The figure plan specifies the following **target filenames**. Listing them here 
 
 - **Planned initial public release:** `v1.0.0`, after repository and publication checks.
 - **License intention:** Apache-2.0; confirm that the repository includes the actual `LICENSE` file before release.
-- **DOI:** pending assignment; do not insert a placeholder DOI into citations as if it were issued.
+- **DOI:** 10.5281/zenodo.2448302
 - **Publication date:** the date above records the research manuscript baseline, not a verified GitHub Release or Zenodo publication event. Replace or annotate it with the actual release date if different.
 - **Attribution and citation:** follow the final `CITATION.cff` and archival record once verified.
 

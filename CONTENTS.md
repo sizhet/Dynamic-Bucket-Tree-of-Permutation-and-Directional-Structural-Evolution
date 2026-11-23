@@ -97,7 +97,7 @@ The cases are **research designs and synthetic illustrations**, not field-valida
 | [ResearchGate-Description.txt](publication/ResearchGate-Description.txt) | Plain-text project description | Planned |
 | [D-BTP-v1.0.0-ResearchGate-Overview.pdf](publication/D-BTP-v1.0.0-ResearchGate-Overview.pdf) | One-page research overview | Planned |
 
-No DOI is asserted here. Add a verified DOI and finalized release tag only after deposit and publication.
+DOI: 10.5281/zenodo.2448302
 
 ## 8. Cross-reference map by research mechanism
 

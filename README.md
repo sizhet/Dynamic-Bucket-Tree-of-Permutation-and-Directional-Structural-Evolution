@@ -226,7 +226,7 @@ Please distinguish **specification proposals**, **implemented behavior**, **meas
 - **Release notes:** [publication/GitHub-Release-Notes-v1.0.0.md](publication/GitHub-Release-Notes-v1.0.0.md).
 - **ResearchGate overview:** [publication/D-BTP-v1.0.0-ResearchGate-Overview.pdf](publication/D-BTP-v1.0.0-ResearchGate-Overview.pdf).
 
-**DOI:** To be assigned after an archived release; no DOI is claimed here.
+**DOI:** 10.5281/zenodo.24483029.
 
 ---
 

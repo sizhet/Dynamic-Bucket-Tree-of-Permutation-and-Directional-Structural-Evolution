@@ -213,7 +213,7 @@ A strong contribution states its assumptions, defines measurable outcomes, prese
 
 ## 11. Citation, License, and Research Integrity
 
-The proposed repository license is **Apache License 2.0**. Follow the repository's `LICENSE` and `CITATION.cff` once published. Do not infer a DOI from this guide: a persistent identifier should be added only after the relevant archive release has actually received one.
+The proposed repository license is **Apache License 2.0**. Follow the repository's `LICENSE` and `CITATION.cff` once published. DOI: 10.5281/zenodo.2448302.
 
 The repository favors **specifications and contracts first, conformance before runtime, explicit unresolved work, and collective-learning-friendly publication**. Claims about algorithmic advantage, general intelligence, or biological mechanisms are hypotheses unless independently supported.
 
