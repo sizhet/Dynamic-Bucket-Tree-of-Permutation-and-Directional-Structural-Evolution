@@ -161,8 +161,6 @@ The eight-figure sequence is:
 7. [Fig-007 — Blockchain Actor Attribution BTP](figures/Fig-007-Blockchain-Actor-Attribution-BTP.png)
 8. [Fig-008 — Recursive Structural Evolution and Collective Learning](figures/Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png)
 
-**Assembly note:** The figure links assume the eight illustrations have been saved as separate PNG files at the paths above. A single composite poster does not satisfy those individual paths; split/export and verify the files before publication.
-
 ## 7. Suggested Reading Paths
 
 **New readers:** [START-HERE.md](START-HERE.md) → D-BTP-001 → D-BTP-002 → D-BTP-004 → D-BTP-006 → CASE-002.
@@ -223,7 +221,7 @@ Please distinguish **specification proposals**, **implemented behavior**, **meas
 
 ## 12. Citation, License, and Publication
 
-- **License:** Apache License 2.0; see [LICENSE](LICENSE) once added to the repository.
+- **License:** Apache License 2.0; see [LICENSE](LICENSE).
 - **Citation metadata:** [CITATION.cff](CITATION.cff) and [.zenodo.json](.zenodo.json) are publication assets; verify authors, repository URL, release tag, and DOI before publication.
 - **Release notes:** [publication/GitHub-Release-Notes-v1.0.0.md](publication/GitHub-Release-Notes-v1.0.0.md).
 - **ResearchGate overview:** [publication/D-BTP-v1.0.0-ResearchGate-Overview.pdf](publication/D-BTP-v1.0.0-ResearchGate-Overview.pdf).

@@ -16,7 +16,7 @@ The format follows the principles of [Keep a Changelog](https://keepachangelog.c
 - Define executable conformance fixtures and reproducible benchmark datasets for SPEC-001 through SPEC-004.
 - Evaluate the core research hypotheses against static BTP, unguided dynamic search, fixed directional guidance, and adaptive guidance under matched computational budgets.
 
-## [1.0.0] — 2026-11-03 (research manuscript baseline; release pending)
+## [1.0.0] — 2026-11-23 (research manuscript baseline)
 
 ### Added — Research foundations
 

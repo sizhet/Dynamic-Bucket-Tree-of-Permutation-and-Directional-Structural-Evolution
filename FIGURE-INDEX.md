@@ -191,16 +191,23 @@ For an index link from the repository root:
 
 The relative paths differ between root-level documents and files in `docs/`.
 
-## 6. Figure production and accessibility requirements
+## 6. Figure production
 
-1. **Export each figure independently.** Preserve the exact canonical filename and PNG extension. A single composite poster does not satisfy eight separate figure paths.
-2. **Check text readability.** A composite split into small panels may not provide legible standalone figures. Prefer regenerating or redrawing individual diagrams at a useful resolution rather than upscaling illegible text.
-3. **Maintain visual consistency.** Use consistent notation for buckets, candidates, constraints, directional fields, evidence, feedback, relay, and validation gates.
-4. **Use accessible labeling.** Avoid color-only distinctions; include text or line-style cues for feasible, rejected, deferred, uncertain, and validated states.
-5. **Preserve epistemic boundaries.** Clearly mark conceptual, synthetic, proposed, and validated components. Do not fabricate benchmark results or empirical measurements.
-6. **Use concise captions and alt text.** Captions communicate the scientific claim; alt text describes the information in the visual.
-7. **Verify cross-links.** Every Markdown image reference must resolve from its actual containing document.
-8. **Track revisions.** If the diagram's model changes, review all linked manuscripts and this index before release.
+[`1. Fig-001-D-BTP-Grand-Architecture.png`](figures/Fig-001-D-BTP-Grand-Architecture.png)
+
+[`2. Fig-002-From-Static-to-Dynamic-BTP.png`](figures/Fig-002-From-Static-to-Dynamic-BTP.png)
+
+[`3. Fig-003-Dynamic-Bucket-State-and-Candidate-Generation.png`](figures/Fig-003-Dynamic-Bucket-State-and-Candidate-Generation.png)
+
+[`4. Fig-004-Constraint-Guided-Structural-Hypothesis-Search.png`](figures/Fig-004-Constraint-Guided-Structural-Hypothesis-Search.png)
+
+[`5. Fig-005-Directional-Generation-and-Selection-Coupling.png`](figures/Fig-005-Directional-Generation-and-Selection-Coupling.png)
+
+[`5. figures/Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png`](figures/Fig-006-Weak-Evidence-and-Multi-Directional-Scoring.png)
+
+[`7. figures/Fig-007-Blockchain-Actor-Attribution-BTP.png`](figures/Fig-007-Blockchain-Actor-Attribution-BTP.png)
+
+[`8. Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png`](figures/Fig-008-Recursive-Structural-Evolution-and-Collective-Learning.png)
 
 ## 7. Pre-release figure conformance checklist
 

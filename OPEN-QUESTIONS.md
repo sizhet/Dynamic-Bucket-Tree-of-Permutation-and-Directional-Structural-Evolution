@@ -4,7 +4,7 @@
 **Document type:** Open research questions and collaboration agenda  
 **Status:** Research hypotheses and design questions; not validated performance claims  
 **Version:** 1.0.0-draft  
-**Last updated:** 2026-11-03
+**Last updated:** 2026-11-23
 
 ## 1. Purpose and scope
 
